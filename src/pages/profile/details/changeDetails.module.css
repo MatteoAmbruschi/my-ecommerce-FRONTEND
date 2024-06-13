@@ -1,0 +1,59 @@
+.containerName{
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-top: 85px;
+    border: 1px solid var(--dark);
+    padding: 30px;
+    background-color: var(--light);
+}
+
+.containerName section {
+    display: flex;
+    flex-direction: column;
+}
+
+.containerName section input{
+    font-size: 20px;
+    font-weight: 500;
+    padding: 4px;
+    background: none;
+    border-bottom: 1px solid var(--dark);
+    text-transform: capitalize;
+}
+
+.containerName section input::placeholder {
+    color: var(--dark);
+}
+
+.containerName section label {
+    font-style: italic;
+}
+
+.containerName button {
+    background-color: var(--dark);
+    height: 80px;
+    width: 10%;
+    color: var(--light);
+    transition: all 0.3s cubic-bezier(0.77,0.2,0.05,1.0);
+}
+
+.containerName button:hover {
+    scale: 0.97;
+}
+
+.errors {
+    margin-top: 20px;
+    color: var(--error);
+}
+
+.errorPassword {
+    color: var(--error);
+}
+
+.lottie {
+    position: fixed;
+    bottom: 0;
+    left: 0;
+    pointer-events: none;
+}

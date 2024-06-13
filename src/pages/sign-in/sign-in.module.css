@@ -1,0 +1,67 @@
+.container{
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+}
+
+.formContainer {
+    width: 70%;
+    padding: 20px;
+    border: 1px solid var(--dark);
+    margin-top: 65px;
+    background-color: var(--light);
+}
+
+.formContainer h2 {
+    margin-bottom: 30px;
+}
+
+.formContainer input {
+    width: 100%;
+    padding: 10px;
+    margin: 5px 0 20px 0;
+    background: var(--light);
+    border: 1px solid var(--dark);
+}
+
+
+.formContainer button {
+    width: 100%;
+    padding: 10px;
+    background-color: var(--dark);
+    color: var(--light);
+    border: none;
+    cursor: pointer;
+    transition: all 0.3s cubic-bezier(0.77,0.2,0.05,1.0);
+}
+
+.formContainer button:hover {
+    scale: 0.97;
+}
+
+
+.account{
+    display: flex;
+    width: 20%;
+    height: auto;
+    padding: 20px;
+    background-color: var(--dark);
+    color: var(--light);
+    justify-content: center;
+    align-items: center;
+    font-size: 20px;
+    margin-top: 65px;
+    transition: all 0.3s cubic-bezier(0.77,0.2,0.05,1.0);
+    text-align: center;
+}
+
+.account:hover{
+    scale: 0.97;
+}
+
+.err{
+    padding-top: 20px;
+    font-size: 20px;
+    letter-spacing: 0px;
+    color: var(--error);
+}

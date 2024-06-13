@@ -1,0 +1,145 @@
+.container{ 
+    display: flex;
+}
+
+.containerLeft {
+    width: 60%;
+    padding-right: 5%;
+}
+
+.containerRight {
+    width: 40%;
+    height: 800px;
+    position: relative;
+    display: flex;
+    border-radius: 30px;
+    overflow: hidden;
+    cursor: grab;
+    cursor: -moz-grab;
+    cursor: -webkit-grab;
+}
+.grabbing {
+    cursor: grabbing;
+    cursor: -moz-grabbing;
+    cursor: -webkit-grabbing
+}
+
+.dividers {
+    margin: 70px 0;
+    border-top: 1px solid var(--dark);
+}
+
+.containerButtons {
+    display: flex;
+    justify-content: space-between;
+}
+
+.cart {
+    border: 1px solid var(--dark);
+    border-radius: 25px;
+    width: 85%;
+    height: 80px;
+    background-color: var(--dark);
+    color: var(--light);
+    box-shadow: 0px 0px 16px 0px rgba(13, 13, 13, 0.2);
+    transition: all 0.4s cubic-bezier(0.77,0.2,0.05,1.0);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.cart:hover {
+    scale: 0.98;
+}
+
+
+
+.wrapperSizes {
+    display: flex;
+    flex-direction: column;
+}
+
+
+.size {
+    border: 1px solid var(--dark);
+    border-radius: 25px;
+    padding: 15px;
+    background-color: var(--light);
+    box-shadow: 0px 0px 16px 0px rgba(13, 13, 13, 0.2);
+    transition: all 0.4s cubic-bezier(0.77,0.2,0.05,1.0);
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    cursor: pointer;
+}
+
+.size:hover > svg {
+    scale: 0.92;
+}
+
+.size svg {
+    transition: all 0.4s cubic-bezier(0.77,0.2,0.05,1.0);
+}
+
+
+.error {
+    border: 1px solid var(--error)
+}
+
+.error svg {
+    fill: var(--error);
+}
+
+
+.hidden {
+    height: 0;  
+    overflow: hidden;
+    transition: all 0.6s cubic-bezier(0.77,0.2,0.05,1.0);
+}
+
+.sizeBlock {
+    height: 100%;
+}
+
+.containerSize {     
+    width: 100%;
+    border: 1px solid var(--dark);
+    border-radius: 25px;
+    padding: 20px 10px;
+    background-color: var(--light);
+    margin-top: 10px;
+}
+
+.sizeSelected{
+    background-color: var(--dark);
+    transition: all 0.4s cubic-bezier(0.77,0.2,0.05,1.0);
+}
+
+.sizeSelected p {
+    color: var(--light);
+}
+
+.sizes {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    padding: 25px 0;
+    cursor: pointer;
+    border-bottom: 0.1px solid var(--dark);
+}
+
+.sizes p {
+    font-size: 18px;
+    font-weight: bold;
+    transition: all 0.4s cubic-bezier(0.77,0.2,0.05,1.0);
+}
+
+.sizes:hover > p{
+    scale: 0.9;
+}
+
+.arrowRotate svg {
+    rotate: -180deg;
+}

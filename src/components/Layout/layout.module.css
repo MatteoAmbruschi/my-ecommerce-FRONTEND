@@ -1,0 +1,23 @@
+.inner {
+    background-color: var(--dark);
+}
+
+.inner .page {
+    background-color: var(--light);
+    padding-top: 47px;
+    border-bottom: 1px solid var(--dark);
+}
+
+.inner .slide{
+    position: fixed;
+    top: 0;
+    left: 0;
+    background-color: var(--light);
+    width: 100vw;
+    height: 100vh;
+    z-index: 101;
+}
+
+.paddingPage{
+    padding: 0 4%;
+}

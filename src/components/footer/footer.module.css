@@ -1,0 +1,89 @@
+.footerContainer {
+    padding: 35px 0;
+}
+
+.containerTop {
+    display: flex;
+    align-items:start;
+    justify-content: space-between;
+}
+
+.containerClock {
+    display: flex;
+    font-size: 18px;
+    flex-basis: 33.33%;
+    justify-content: center;
+}
+
+.containerClock p {
+    font-size: 18px;
+}
+
+.clock {
+    color: var(--dark);
+    font-family: 'Buduj Sans';
+    font-weight: 500;
+    margin: 0 7px;
+    width: 76px;
+}
+
+@keyframes rotate {
+    from {
+        transform: rotate(0deg);
+    }
+    to {
+        transform: rotate(360deg);
+    }
+  }
+
+  .containerTop img {
+    animation: rotate 6s linear infinite;
+  }
+
+  .newsLetter{
+    flex-basis: 33.33%;
+  }
+  .containerImg {
+    flex-basis: 33.33%;
+    display: flex;
+    justify-content: end;
+  }
+
+  .newsLetter p {
+    font-size: 18px;
+    border-bottom: 1px solid var(--dark);
+    width: fit-content;
+  }
+
+  .newsLetter p:hover {
+    border-bottom: 1px dashed var(--dark);
+  }
+
+
+  .containerCenter {
+    display: flex;
+    align-items: center;
+    flex-direction: column;
+    padding: 160px 0;
+  }
+
+  .containerCenter p {
+    font-size: 65px;
+    line-height: 80px;
+    font-weight: 500;
+    text-transform: uppercase;
+  }
+
+
+  .wrap1 {
+    position: relative !important;
+    clip-path: polygon(0% 0, 100% 0%, 100% 100%, 0 100%) !important;
+    display: flex;
+    justify-content: center;
+  }
+
+  .wrap2 {
+    position: fixed !important;
+    width: calc(100% - 8%) !important;
+    bottom: 0 !important;
+  }

@@ -1,0 +1,50 @@
+.formContainer {
+    width: 100%;
+    padding: 20px;
+    border: 1px solid var(--dark);
+    margin-top: 65px;
+    background-color: var(--light);
+}
+
+.formContainer h2 {
+    margin-bottom: 30px;
+}
+
+.formContainer input {
+    width: 100%;
+    padding: 10px;
+    margin: 5px 0 20px 0;
+    background: var(--light);
+    border: 1px solid var(--dark);
+}
+
+.names {
+    display: flex;
+    justify-content: space-between;
+    width: 100%;
+}
+
+.names div {
+    width: 48%;
+}
+
+.formContainer button {
+    width: 100%;
+    padding: 10px;
+    background-color: var(--dark);
+    color: var(--light);
+    border: none;
+    cursor: pointer;
+    transition: all 0.3s cubic-bezier(0.77,0.2,0.05,1.0);
+}
+
+.formContainer button:hover {
+    scale: 0.97;
+}
+
+.err{
+    padding-top: 20px;
+    font-size: 20px;
+    letter-spacing: 0px;
+    color: var(--error);
+}

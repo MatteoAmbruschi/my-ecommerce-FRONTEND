@@ -1,0 +1,67 @@
+.error{
+    height: 50vh; 
+ }
+ 
+ .error h2 {
+     font-size: 40px;
+     padding-top: 6%;
+     display: inline-block;
+     font-weight: normal;
+ }
+ 
+ .error img {
+     display: inline;
+     vertical-align: baseline;
+ }
+
+ .container {
+    display: flex;
+ }
+
+ .itemContainer {
+    margin: 20px;
+    border: 1px solid var(--dark);
+    background-color: var(--light);
+    max-width: 272px;
+    cursor: pointer;
+    box-shadow: 0px 0px 16px 0px rgba(13, 13, 13, 0.4);
+    transition: all 0.4s cubic-bezier(0.77,0.2,0.05,1.0);
+ }
+
+ .itemContainer:hover {
+   scale: 0.97;
+ }
+
+ .listInfo{
+    padding: 30px;
+ }
+
+.listInfo li {
+    font-size: 13px;
+}
+
+.listInfo li p{
+    display: inline-block;
+    font-size: 16px;
+    font-weight: 500;
+ }
+
+ .stato {
+    border-bottom: 1px solid var(--dark);
+    border-right: 1px solid var(--dark);
+    position: absolute;
+    top: 0;
+    left: 0;
+    padding: 5px;
+    z-index: 1;
+    background-color: var(--light);
+ }
+
+ .containerInfo{
+    display: flex;
+    justify-content: space-between;
+    text-transform: capitalize;
+    border: 1px solid var(--dark);
+    padding: 5px;
+    margin-bottom: 8px;
+ }
