@@ -17,6 +17,7 @@ export default function SignIn({charge, setCharge}) {
     axios.get(process.env.NEXT_PUBLIC_URL +  'login', { withCredentials: true })
       .then((response) => {
         if(response.status === 200) {
+          console.log(response.data)
           router.push('/profile', undefined, { scroll: false });
         }
       })
@@ -38,6 +39,10 @@ const handleSubmit = async (e) => {
   try {
     const response = await axios.post(process.env.NEXT_PUBLIC_URL + 'login', formData , { withCredentials: true });
     if (response.status === 200) {
+      const userData = response.data;
+      console.log(userData)
+      localStorage.setItem('userData', JSON.stringify(userData));
+
       router.push('/profile', undefined, { scroll: false });
       setErrors('');
       setCharge(charge + 1)
