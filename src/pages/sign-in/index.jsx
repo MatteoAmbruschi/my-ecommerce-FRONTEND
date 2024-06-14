@@ -39,14 +39,17 @@ const handleSubmit = async (e) => {
   try {
     const response = await axios.post(process.env.NEXT_PUBLIC_URL + 'login', formData , { withCredentials: true });
     if (response.status === 200) {
-
       const token = response.data.token;
-      console.log(token)
-      localStorage.setItem('A_JWT', token);
+      if (token) {
+        console.log('Token:', token);
+        localStorage.setItem('authToken', token);
 
-      router.push('/profile', undefined, { scroll: false });
-      setErrors('');
-      setCharge(charge + 1)
+        router.push('/profile', undefined, { scroll: false });
+        setErrors('');
+        setCharge(charge + 1)
+      } else {
+        console.log('Token non trovato nella risposta.');
+      }
     } 
     else if(response.status === 401 || response.status === 500) {
       const result = response.data;
