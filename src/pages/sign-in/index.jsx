@@ -42,7 +42,7 @@ const handleSubmit = async (e) => {
 
       const token = response.data.token;
       console.log(token)
-      localStorage.setItem('jwtToken', token);
+      localStorage.setItem('A_JWT', token);
 
       router.push('/profile', undefined, { scroll: false });
       setErrors('');
