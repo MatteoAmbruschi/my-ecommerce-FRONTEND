@@ -13,18 +13,21 @@ export default function SignIn({charge, setCharge}) {
   const [errors, setErrors] = useState('')
   const router = useRouter();
 
+  
   useEffect(() => {
-    axios.get(process.env.NEXT_PUBLIC_URL +  'login', { withCredentials: true })
-      .then((response) => {
-        if(response.status === 200) {
-          console.log(response.data)
+    const checkAuth = async () => {
+      try {
+        const response = await axios.get(`${process.env.NEXT_PUBLIC_URL}login`, { withCredentials: true });
+        if (response.status === 200) {
           router.push('/profile', undefined, { scroll: false });
         }
-      })
-      .catch((error) => {
+      } catch (error) {
         console.error('Error fetching data:', error);
-      });
+      }
+    };
+    checkAuth();
   }, []);
+  
 
   const handleChange = (e) => {
     const { name, value } = e.target;
