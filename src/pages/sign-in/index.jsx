@@ -39,9 +39,10 @@ const handleSubmit = async (e) => {
   try {
     const response = await axios.post(process.env.NEXT_PUBLIC_URL + 'login', formData , { withCredentials: true });
     if (response.status === 200) {
-      const userData = response.data;
-      console.log(userData)
-      localStorage.setItem('userData', JSON.stringify(userData));
+
+      const token = response.data.token;
+      console.log(token)
+      localStorage.setItem('jwtToken', token);
 
       router.push('/profile', undefined, { scroll: false });
       setErrors('');
