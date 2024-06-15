@@ -17,12 +17,10 @@ export default function Profile({ charge, setCharge}) {
     const fetchUserData = async () => {
       try {
         const token = localStorage.getItem('authToken');
-        const response = await axios.get(process.env.NEXT_PUBLIC_URL + 'dashboard', { 
-          headers: { 
-            Authorization: `Bearer ${token}`
-          },
+        const response = await axios.get(process.env.NEXT_PUBLIC_URL + 'dashboard', {
+          headers: { Authorization: `Bearer ${token}` },
           withCredentials: true
-         });
+        });
         if (response.status === 200) {
           setUser(response.data);
         } else if (response.status === 401) {
