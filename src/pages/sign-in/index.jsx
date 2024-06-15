@@ -20,9 +20,7 @@ export default function SignIn({charge, setCharge}) {
         const token = localStorage.getItem('authToken');
         if(token) {
           const response = await axios.get(`${process.env.NEXT_PUBLIC_URL}login`, {
-            headers: {           
-              'Authorization': token,
-              'Content-Type': 'application/json' },
+            headers: { Authorization: token },
             withCredentials: true
           });
           if (response.status === 200) {
