@@ -44,6 +44,7 @@ export default function Profile({ charge, setCharge}) {
   async function logOut() {
     try {
       const response = await axios.post(process.env.NEXT_PUBLIC_URL + 'logout', {}, { withCredentials: true });
+      localStorage.removeItem('authToken');
       if (response.status === 200) {
         console.log(response);
         router.push('/sign-in', undefined, { scroll: false });
