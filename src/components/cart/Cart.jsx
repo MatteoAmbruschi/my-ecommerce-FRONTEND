@@ -31,7 +31,9 @@ export default function Cart ({charge, setCharge, openCart}) {
             try {
               const token = localStorage.getItem('authToken');
                 const response = await axios.get(`${process.env.NEXT_PUBLIC_URL}cart`, {
-                  headers: { Authorization: `Bearer ${token}` },
+                  headers: {           
+                    'Authorization': token,
+                    'Content-Type': 'application/json' },
                   withCredentials: true
                 });
                 if (response.status === 200) {
