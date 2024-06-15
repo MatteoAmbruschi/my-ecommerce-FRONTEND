@@ -17,9 +17,16 @@ export default function SignIn({charge, setCharge}) {
   useEffect(() => {
     const checkAuth = async () => {
       try {
-        const response = await axios.get(`${process.env.NEXT_PUBLIC_URL}login`, { withCredentials: true });
-        if (response.status === 200) {
-          router.push('/profile', undefined, { scroll: false });
+        const token = localStorage.getItem('authToken');
+        if(token) {
+          const response = await axios.get(`${process.env.NEXT_PUBLIC_URL}login`, {
+            headers: { Authorization: `Bearer ${token}` },
+            withCredentials: true
+          });
+          if (response.status === 200) {
+            console.log(response.data)
+            /* router.push('/profile', undefined, { scroll: false }); */
+          }
         }
       } catch (error) {
         console.error('Error fetching data:', error);
