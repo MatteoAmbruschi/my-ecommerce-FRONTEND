@@ -28,30 +28,28 @@ export default function Cart ({charge, setCharge, openCart}) {
 
     useEffect(() => {
         const logged = async () => {
-          try {
-            const token = localStorage.getItem('authToken');
-            if (!token) {
-              router.push('/sign-in', undefined, { scroll: false });
-              return;
-            }
-    
-            const response = await axios.get(`${process.env.NEXT_PUBLIC_URL}dashboard`, {
-              headers: { Authorization: `Bearer ${token}` },
-              withCredentials: true
-            });
-    
-            if (response.status === 200) {
-              setUser(response.data);
-            } else {
-              setError(response.data.message || 'Error fetching user data');
-              router.push('/sign-in', undefined, { scroll: false });
-            }
-          } catch (error) {
-            console.error('Error fetching user data:', error);
-            setError('You are not logged in');
-            router.push('/sign-in', undefined, { scroll: false });
-          }
-        };
+            try {
+              const token = localStorage.getItem('authToken');
+              const response = await axios.get(`${process.env.NEXT_PUBLIC_URL}cart`, {
+                headers: { Authorization: `Bearer ${token}` },
+                withCredentials: true
+              });
+                if (response.status === 200) {
+                  setUser(response.data);
+                  setLoggedError(false);
+                } else if (response.status === 404) {
+                  setUser(response.data)
+                  setLoggedError(true);
+                } else if (response.status === 401) {
+                  setLoggedError(true);
+                } else {
+                  setLoggedError(true);
+                }
+              } catch (loggedError) {
+                setLoggedError(true);
+                console.error('Error fetching user data:', loggedError);
+              }
+           }  
            logged()
            
        }, [charge])
