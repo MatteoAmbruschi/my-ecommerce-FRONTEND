@@ -8,7 +8,7 @@ import Link from 'next/link';
 import Title from '@/components/title/Title';
 
 
-export default function Profile({ charge, setCharge}) {
+export default function Profile({ charge, setCharge, token}) {
   const [user, setUser] = useState(null);
   const [error, setError] = useState('');
   const router = useRouter()
@@ -16,16 +16,14 @@ export default function Profile({ charge, setCharge}) {
   useEffect(() => {
     const fetchUserData = async () => {
       try {
-        const token = localStorage.getItem('authToken');
         const response = await axios.get(process.env.NEXT_PUBLIC_URL + 'dashboard', { 
           headers: { 
-            /* 'Content-Type': 'application/json',  */
             Authorization: `Bearer ${token}`
           },
           withCredentials: true
          });
         if (response.status === 200) {
-          setUser(response.data);
+            setUser(response.data);
         } else if (response.status === 401) {
           setError(response.message);
           router.push('/sign-in', undefined, { scroll: false })
