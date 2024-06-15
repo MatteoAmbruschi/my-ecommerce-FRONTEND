@@ -59,7 +59,11 @@ export default function Cart ({charge, setCharge, openCart}) {
         console.log(key)
         try {
           if(key.quantita > 1){
-            const response = await axios.put(process.env.NEXT_PUBLIC_URL + `cart/${key.carrello_id}`, {...key, quantita: key.quantita - 1}, { withCredentials: true });
+            const token = localStorage.getItem('authToken');
+            const response = await axios.put(process.env.NEXT_PUBLIC_URL + `cart/${key.carrello_id}`, {...key, quantita: key.quantita - 1}, {
+              headers: { Authorization: token },
+              withCredentials: true
+            });
             if(response.status === 200){
               setCharge(charge + 1);
               console.log('aumentato')
@@ -67,7 +71,11 @@ export default function Cart ({charge, setCharge, openCart}) {
               console.log('errore')
           }
         } else {
-          const response = await axios.delete(process.env.NEXT_PUBLIC_URL + `cart/${key.carrello_id}`, { withCredentials: true });
+          const token = localStorage.getItem('authToken');
+          const response = await axios.delete(process.env.NEXT_PUBLIC_URL + `cart/${key.carrello_id}`, {
+            headers: { Authorization: token },
+            withCredentials: true
+          });
           if(response.status === 200){
             setCharge(charge + 1);
             console.log('eliminato')
@@ -91,7 +99,11 @@ export default function Cart ({charge, setCharge, openCart}) {
         e.preventDefault();
       
         try {
-          const response = await axios.post(process.env.NEXT_PUBLIC_URL + 'login', formData , { withCredentials: true });
+          const token = localStorage.getItem('authToken');
+          const response = await axios.post(process.env.NEXT_PUBLIC_URL + 'login', formData , {
+            headers: { Authorization: token },
+            withCredentials: true
+          });
           if (response.status === 200) {
             setErrorsPassword('');
             setCharge(charge + 1)
@@ -119,7 +131,7 @@ export default function Cart ({charge, setCharge, openCart}) {
           }
         }
       };
-
+      
 
 return (
     <div onClick={() => {cartMenuOpen === false ? setCartMenuOpen(true) : null}} className={`${styles.cartContainer} ${cartMenuOpen ? styles.expanded : ''}`}href='/'>

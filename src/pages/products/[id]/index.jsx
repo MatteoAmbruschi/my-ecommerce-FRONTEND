@@ -52,11 +52,10 @@ export default function Product({charge, setCharge, openCart, setOpenCart}) {
   useEffect(() => {
     const fetchCart = async () => {
       try {
+        const token = localStorage.getItem('authToken');
         const response = await axios.get(process.env.NEXT_PUBLIC_URL + 'cart', {
-          withCredentials: true,
-          headers: {
-            'Content-Type': 'application/json'
-          }
+          headers: { Authorization: token },
+          withCredentials: true
         });
         if (response.status === 200) {
           setProducts(response.data);
@@ -85,7 +84,11 @@ export default function Product({charge, setCharge, openCart, setOpenCart}) {
     if (find) {
       const handleAdd = async () => {
         try {
-          const response = await axios.put(process.env.NEXT_PUBLIC_URL + `cart/${find.carrello_id}`, {...find, quantita: find.quantita + 1}, { withCredentials: true });
+          const token = localStorage.getItem('authToken');
+          const response = await axios.put(process.env.NEXT_PUBLIC_URL + `cart/${find.carrello_id}`, {...find, quantita: find.quantita + 1}, {
+            headers: { Authorization: token },
+            withCredentials: true
+          });
           if(response.status === 200){
             setCharge(charge + 1);
             setOpenCart(openCart + 1);
@@ -104,7 +107,11 @@ export default function Product({charge, setCharge, openCart, setOpenCart}) {
     else {
       const handleSubmit = async () => {
         try {
-          const response = await axios.post(`${process.env.NEXT_PUBLIC_URL}cart`, data, { withCredentials: true });
+          const token = localStorage.getItem('authToken');
+          const response = await axios.post(`${process.env.NEXT_PUBLIC_URL}cart`, data, {
+            headers: { Authorization: token },
+            withCredentials: true
+          });
     
           if (response.status === 200) {
             setError(false);
@@ -116,13 +123,13 @@ export default function Product({charge, setCharge, openCart, setOpenCart}) {
             setError(true);
           }
         } catch (error) {
-          if(error.response.status === 401){
+          if(error.status === 401){
             setOpenCart(openCart + 1);
           }
-          else if(error.response.status === 500){
+          else if(error.status === 500){
             alert(error.message);
           }
-          else if(error.response.status === 404){
+          else if(error.status === 404){
             alert(error.message);
           } 
           else {
