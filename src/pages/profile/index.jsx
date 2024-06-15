@@ -1,53 +1,57 @@
 import { useEffect, useState } from 'react';
 import { useRouter } from 'next/router';
 import Layout from '@/components/Layout';
-import axios from 'axios';
 import Image from "next/image";
-import styles from './profile.module.css'
+import styles from './profile.module.css';
 import Link from 'next/link';
 import Title from '@/components/title/Title';
 
-
-export default function Profile({ charge, setCharge}) {
+export default function Profile({ charge, setCharge }) {
   const [user, setUser] = useState(null);
   const [error, setError] = useState('');
-  const router = useRouter()
+  const router = useRouter();
 
   useEffect(() => {
     const fetchUserData = async () => {
       try {
         const token = localStorage.getItem('authToken');
-        const response = await axios.get(process.env.NEXT_PUBLIC_URL + 'dashboard', {
+        const response = await fetch(process.env.NEXT_PUBLIC_URL + 'dashboard', {
           headers: { Authorization: `Bearer ${token}` },
-          withCredentials: true
+          credentials: 'include'
         });
+
         if (response.status === 200) {
-          setUser(response.data);
+          const data = await response.json();
+          setUser(data);
         } else if (response.status === 401) {
-          setError(response.message);
-          router.push('/sign-in', undefined, { scroll: false })
+          const data = await response.json();
+          setError(data.message);
+          router.push('/sign-in', undefined, { scroll: false });
         } else {
-          router.push('/sign-in', undefined, { scroll: false })
-          setError(response.message);
+          const data = await response.json();
+          setError(data.message);
+          router.push('/sign-in', undefined, { scroll: false });
         }
       } catch (error) {
-        router.push('/sign-in', undefined, { scroll: false })
+        router.push('/sign-in', undefined, { scroll: false });
         console.error('Error fetching user data:', error);
         setError('You are not logged in');
       }
     };
 
     fetchUserData();
-  }, []);
+  }, [router]);
 
-  
   async function logOut() {
     try {
-      const response = await axios.post(process.env.NEXT_PUBLIC_URL + 'logout', {}, { withCredentials: true });
+      const response = await fetch(process.env.NEXT_PUBLIC_URL + 'logout', {
+        method: 'POST',
+        credentials: 'include'
+      });
+
       if (response.status === 200) {
-        console.log(response);
         router.push('/sign-in', undefined, { scroll: false });
-        setCharge(charge + 1)
+        setCharge(charge + 1);
       } else {
         alert('Error in the Logout');
       }
@@ -57,7 +61,6 @@ export default function Profile({ charge, setCharge}) {
     }
   }
 
-  
   return (
     <Layout>
       {!user ? (
@@ -65,18 +68,15 @@ export default function Profile({ charge, setCharge}) {
           <h2>{error}<Image src='/asterisco-black2.png' width={50} height={50} alt='asterisco usato come logo' /></h2>
         </div>
       ) : (
-        
-      <div className={styles.container}>
-        <Title><h1>Hi, {user.nome}<Image src='/asterisco-black2.png' width={50} height={50} alt='asterisco usato come logo' /></h1></Title>
-
-        <section className={styles.parent}>
-         <Link scroll={false} className={styles.selection} href={'/profile/shipments'}>shipments<Image src='/arrow3.png' width={20} height={20} alt='asterisco usato come logo' /></Link>
-         <Link scroll={false} className={styles.selection} href={'/profile/orders'}>Orders<Image src='/arrow3.png' width={20} height={20} alt='asterisco usato come logo' /></Link>
-         <Link scroll={false} className={styles.selection} href={'/profile/details'}>Change details<Image src='/arrow3.png' width={20} height={20} alt='asterisco usato come logo' /></Link>
-         <div className={`${styles.selection} ${styles.logout}`} onClick={logOut}>Log-Out<Image src='/arrow3.png' width={20} height={20} alt='asterisco usato come logo' /></div>
-        </section>
-        
-      </div>
+        <div className={styles.container}>
+          <Title><h1>Hi, {user.nome}<Image src='/asterisco-black2.png' width={50} height={50} alt='asterisco usato come logo' /></h1></Title>
+          <section className={styles.parent}>
+            <Link scroll={false} className={styles.selection} href={'/profile/shipments'}>shipments<Image src='/arrow3.png' width={20} height={20} alt='asterisco usato come logo' /></Link>
+            <Link scroll={false} className={styles.selection} href={'/profile/orders'}>Orders<Image src='/arrow3.png' width={20} height={20} alt='asterisco usato come logo' /></Link>
+            <Link scroll={false} className={styles.selection} href={'/profile/details'}>Change details<Image src='/arrow3.png' width={20} height={20} alt='asterisco usato come logo' /></Link>
+            <div className={`${styles.selection} ${styles.logout}`} onClick={logOut}>Log-Out<Image src='/arrow3.png' width={20} height={20} alt='asterisco usato come logo' /></div>
+          </section>
+        </div>
       )}
     </Layout>
   );
