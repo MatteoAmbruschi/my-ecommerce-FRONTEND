@@ -19,7 +19,7 @@ export default function Profile({ charge, setCharge}) {
         const token = localStorage.getItem('authToken');
         const response = await axios.get(process.env.NEXT_PUBLIC_URL + 'dashboard', { 
           headers: { 
-            'Content-Type': 'application/json', 
+            /* 'Content-Type': 'application/json',  */
             Authorization: `Bearer ${token}`
           },
           withCredentials: true
