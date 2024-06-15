@@ -28,7 +28,7 @@ export default function SignIn({charge, setCharge}) {
           });
           if (response.status === 200) {
             console.log(response.data)
-            /* router.push('/profile', undefined, { scroll: false }); */
+            router.push('/profile', undefined, { scroll: false });
           }
         }
       } catch (error) {
