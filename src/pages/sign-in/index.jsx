@@ -8,7 +8,7 @@ import Image from "next/image";
 import axios from 'axios';
 import Title from "@/components/title/Title";
 
-export default function SignIn({charge, setCharge, token}) {
+export default function SignIn({charge, setCharge}) {
   const [formData, setFormData] = useState({ email: '', password: '' });
   const [errors, setErrors] = useState('')
   const router = useRouter();
@@ -17,6 +17,7 @@ export default function SignIn({charge, setCharge, token}) {
   useEffect(() => {
     const checkAuth = async () => {
       try {
+        const token = localStorage.getItem('authToken');
         if(token) {
           const response = await axios.get(`${process.env.NEXT_PUBLIC_URL}login`, {
             headers: { 

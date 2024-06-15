@@ -6,7 +6,7 @@ import { useEffect, useState } from 'react'
 import { usePathname } from 'next/navigation'
 import axios from "axios"
 
-export default function Cart ({charge, setCharge, openCart, token}) {
+export default function Cart ({charge, setCharge, openCart}) {
     const [cartMenuOpen, setCartMenuOpen] = useState()
     const [errorsPassword, setErrorsPassword] = useState('')
     const [formData, setFormData] = useState({ email: '', password: '' });
@@ -29,6 +29,7 @@ export default function Cart ({charge, setCharge, openCart, token}) {
     useEffect(() => {
         const logged = async () => {
             try {
+              const token = localStorage.getItem('authToken');
                 const response = await axios.get(process.env.NEXT_PUBLIC_URL + 'cart', {
                   withCredentials: true,
                   headers: {
