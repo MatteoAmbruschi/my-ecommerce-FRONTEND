@@ -16,8 +16,12 @@ export default function Profile({ charge, setCharge}) {
   useEffect(() => {
     const fetchUserData = async () => {
       try {
+        const token = localStorage.getItem('authToken');
         const response = await axios.get(process.env.NEXT_PUBLIC_URL + 'dashboard', { 
-          headers: { Authorization: `Bearer ${token}` },
+          headers: { 
+            'Content-Type': 'application/json', 
+            Authorization: `Bearer ${token}`
+          },
           withCredentials: true
          });
         if (response.status === 200) {
