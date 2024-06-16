@@ -2,11 +2,9 @@ import "@/styles/globals.css";
 import { AnimatePresence } from "framer-motion";
 import Nav from "@/components/nav/Nav";
 import Footer from "@/components/footer/Footer";
-import { useState } from "react";
+import { useState, useEffect } from "react";
 import Cart from "@/components/cart/Cart";
 import Router from 'next/router'
-import { useEffect } from "react/cjs/react.production.min";
-
 
 export const fixTimeoutTransition = (timeout) => {
     Router.events.on('beforeHistoryChange', () => {
@@ -48,7 +46,7 @@ export default function App({ Component, pageProps, router }) {
 
   useEffect(() => {
     fixTimeoutTransition(1000);
-  } [])
+  }, [])
 
   return (
     <main>
