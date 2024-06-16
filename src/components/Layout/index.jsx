@@ -114,17 +114,15 @@ export default function Layout({children}) {
         loadGrained();
 
         window.scrollTo(0, 0);
+
+        fixTimeoutTransition(1000);
     }, [])
 
     return (
     <div className={styles.inner}>
-        {fixTimeoutTransition(1000)}
         <motion.div {...anim(slide)} className={styles.slide} />
-        {fixTimeoutTransition(1000)}
             <motion.div {...anim(prospective)} className={styles.page} id='divContainer'>
-            {fixTimeoutTransition(1000)}
                 <motion.div {...anim(opacity)} className={styles.paddingPage}>
-                {fixTimeoutTransition(1000)}
                         {children}
                         <div style={{paddingBottom:100}}></div>
                 </motion.div>
