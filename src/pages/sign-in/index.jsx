@@ -23,6 +23,7 @@ export default function SignIn({charge, setCharge}) {
             headers: { Authorization: token },
             withCredentials: true
           });
+          console.log(response.status)
           if (response.status === 200) {
             console.log(response.data)
             router.push('/profile', undefined, { scroll: false });
