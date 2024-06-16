@@ -6,11 +6,12 @@ import Link from "next/link";
 import dynamic from 'next/dynamic'
 import Title from "@/components/title/Title";
 
-const styles = dynamic(() => import('./products.module.css'), {
-  loading: () => <p>Loading Styles...</p>,
-})
 
 export default function Products() {
+  const styles = dynamic(() => import('./products.module.css'), {
+    loading: () => <p>Loading Styles...</p>,
+  })
+  
   const [products, setProducts] = useState()
 
   useEffect(() => {
