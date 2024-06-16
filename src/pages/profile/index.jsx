@@ -22,13 +22,10 @@ export default function Profile({ charge, setCharge}) {
           withCredentials: true
         });
         if (response.status === 200) {
+          setError('Loading');
           setUser(response.data);
-        } else if (response.status === 401) {
-          setError(response.message);
-          router.push('/sign-in', undefined, { scroll: false })
         } else {
           router.push('/sign-in', undefined, { scroll: false })
-          setError(response.message);
         }
       } catch (error) {
         router.push('/sign-in', undefined, { scroll: false })
@@ -63,7 +60,7 @@ export default function Profile({ charge, setCharge}) {
     <Layout>
       {!user ? (
         <div className={styles.error}>
-          <h1>Hi, Loading{error}<Image src='/asterisco-black2.png' width={50} height={50} alt='asterisco usato come logo' /></h1>
+          <h2>{error ? error : 'Loading'}<Image src='/asterisco-black2.png' width={50} height={50} alt='asterisco usato come logo' /></h2>
         </div>
       ) : (
         
