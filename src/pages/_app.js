@@ -11,7 +11,7 @@ export default function App({ Component, pageProps, router }) {
   const [openCart, setOpenCart] = useState(0)
 
   useEffect(() => {
-    fixTimeoutTransition(300);
+    fixTimeoutTransition(400);
   }, [])
 
 
