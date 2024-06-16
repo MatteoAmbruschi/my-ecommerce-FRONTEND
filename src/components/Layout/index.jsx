@@ -26,7 +26,9 @@ export const fixTimeoutTransition = (timeout) => {
             window.setTimeout(() => {
                 for (let copy of copies) {
                     // Remove previous page's styles after the transition has finalized.
-                    document.head.removeChild(copy);
+                    if (document.head.contains(copy)) {
+                        document.head.removeChild(copy);
+                    }
                 }
             }, timeout);
         };
