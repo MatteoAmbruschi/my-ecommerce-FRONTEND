@@ -3,15 +3,10 @@ import Head from "next/head";
 import Layout from "@/components/Layout";
 import { useState, useEffect } from "react";
 import Link from "next/link";
-import dynamic from 'next/dynamic'
+import styles from './products.module.css'
 import Title from "@/components/title/Title";
 
-
 export default function Products() {
-  const styles = dynamic(() => import('./products.module.css'), {
-    loading: () => <p>Loading Styles...</p>,
-  })
-  
   const [products, setProducts] = useState()
 
   useEffect(() => {
