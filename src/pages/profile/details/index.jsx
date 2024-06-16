@@ -19,12 +19,11 @@ export default function ChangeDetails() {
     useEffect(() => {
         const fetchUserData = async () => {
             try {
+                const token = localStorage.getItem('authToken');
                 const response = await axios.get(process.env.NEXT_PUBLIC_URL + 'dashboard', {
-                    withCredentials: true,
-                    headers: {
-                        'Content-Type': 'application/json'
-                    }
-                });
+                    headers: { Authorization: token },
+                    withCredentials: true
+                  });
                 if (response.status === 200) {
                     setUser(response.data);
                 } else if (response.status === 401) {
@@ -55,7 +54,11 @@ export default function ChangeDetails() {
         e.preventDefault();
 
         try {
-            const response = await axios.put(process.env.NEXT_PUBLIC_URL + 'users', formData, { withCredentials: true });
+            const token = localStorage.getItem('authToken');
+            const response = await axios.put(process.env.NEXT_PUBLIC_URL + 'users', formData, {
+                headers: { Authorization: token },
+                withCredentials: true
+              });
             if (response.status === 200) {
                 setLottie(true)
                 setError('');

@@ -15,7 +15,11 @@ const OrdersComponent = () => {
   const router = useRouter()
 
   useEffect(() => {
-    axios.get(process.env.NEXT_PUBLIC_URL + 'orders', { withCredentials: true })
+    const token = localStorage.getItem('authToken');
+    axios.get(process.env.NEXT_PUBLIC_URL + 'orders', {
+      headers: { Authorization: token },
+      withCredentials: true
+    })
       .then((response) => {
         if (response.status === 200) {
           setShip(response.data);

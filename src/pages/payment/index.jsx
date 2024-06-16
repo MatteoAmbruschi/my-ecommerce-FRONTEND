@@ -9,11 +9,10 @@ export default function Payment({charge, setCharge, openCart}) {
     useEffect(() => {
         const logged = async () => {
             try {
+                const token = localStorage.getItem('authToken');
                 const response = await axios.get(process.env.NEXT_PUBLIC_URL + 'cart', {
-                  withCredentials: true,
-                  headers: {
-                    'Content-Type': 'application/json'
-                  }
+                  headers: { Authorization: token },
+                  withCredentials: true
                 });
                 if (response.status === 200) {
                   setUser(response.data);
