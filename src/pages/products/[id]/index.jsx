@@ -72,10 +72,15 @@ export default function Product({charge, setCharge, openCart, setOpenCart}) {
 
 
   const handleCart = () => {
-    if (sizeSelected === false || sizeSelected === null) {
-      setError(true);
+    if (!products) {
+      setOpenCart(openCart + 1);
       return;
     }
+    else if (sizeSelected === false || sizeSelected === null) {
+      setError(true);
+      setOpenMenu(true);
+      return;
+    } 
 
     const data = { id: product.id, sizeSelected };
     const find = products?.find((item) => item.prodotto_id === data.id && item.taglia_selezionata === data.sizeSelected);

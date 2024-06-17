@@ -99,14 +99,19 @@ export default function Cart ({charge, setCharge, openCart}) {
         e.preventDefault();
       
         try {
-          const token = localStorage.getItem('authToken');
-          const response = await axios.post(process.env.NEXT_PUBLIC_URL + 'login', formData , {
-            headers: { Authorization: token },
-            withCredentials: true
-          });
+          const response = await axios.post(process.env.NEXT_PUBLIC_URL + 'login', formData , { withCredentials: true });
           if (response.status === 200) {
+            const token = response.data.token;
+            if (token) {
+            console.log('Token:', token);
+            localStorage.setItem('authToken', token);
+            
             setErrorsPassword('');
             setCharge(charge + 1)
+            }
+            else {
+              console.log('Token non trovato nella risposta.');
+            }
           } 
           else if(response.status === 401 || response.status === 500) {
             const result = response.data;
