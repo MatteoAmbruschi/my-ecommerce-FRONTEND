@@ -46,7 +46,7 @@ export default function Footer() {
                     <section className={styles.containerCenter}>
                         <p>matteoambruschi10@gmail.com</p>
                         <p>+39 *** *** ****</p>
-                        <p>CELADINA, BERGAMO</p>
+                        <p>BERGAMO, BG</p>
                         <p>ITALY, IT</p>
                     </section>
 
