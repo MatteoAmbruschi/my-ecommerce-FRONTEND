@@ -58,27 +58,26 @@ export default function Cart ({charge, setCharge, openCart}) {
        const handleAdd = async (key) => {
         console.log(key)
         try {
+          const token = localStorage.getItem('authToken');
           if(key.quantita > 1){
-            const token = localStorage.getItem('authToken');
-            const response = await axios.put(process.env.NEXT_PUBLIC_URL + `cart/${key.carrello_id}`, {...key, quantita: key.quantita - 1}, {
+            const response = await axios.put(process.env.NEXT_PUBLIC_URL + `cart/${key.carrello_id}`, {quantita: key.quantita - 1}, {
               headers: { Authorization: token },
               withCredentials: true
             });
             if(response.status === 200){
               await setCharge(charge + 1);
-              console.log('diminuito di 1')
+              console.log(response.data.message)
             } else{
               console.log('errore')
           }
         } else {
-          const token = localStorage.getItem('authToken');
           const response = await axios.delete(process.env.NEXT_PUBLIC_URL + `cart/${key.carrello_id}`, {
             headers: { Authorization: token },
             withCredentials: true
           });
           if(response.status === 200){
             await setCharge(charge + 1);
-            console.log('eliminato')
+            console.log(response.data.message)
           } else{
             alter('errore')
         }

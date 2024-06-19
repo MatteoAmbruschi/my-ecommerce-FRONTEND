@@ -90,7 +90,7 @@ export default function Product({charge, setCharge, openCart, setOpenCart}) {
       const handleAdd = async () => {
         try {
           const token = localStorage.getItem('authToken');
-          const response = await axios.put(process.env.NEXT_PUBLIC_URL + `cart/${find.carrello_id}`, {...find, quantita: find.quantita + 1}, {
+          const response = await axios.put(process.env.NEXT_PUBLIC_URL + `cart/${find.carrello_id}`, {quantita: find.quantita + 1}, {
             headers: { Authorization: token },
             withCredentials: true
           });
@@ -99,11 +99,11 @@ export default function Product({charge, setCharge, openCart, setOpenCart}) {
             await setOpenCart(openCart + 1);
             console.log('aumentato')
           } else{
-            console.log('errore')
+            console.log(response.data.message)
           }
         }
         catch(error) {
-          console.log(error);
+          console.log(error.response.data.message);
         }
       }
       handleAdd()
