@@ -76,7 +76,7 @@ export default function Cart ({charge, setCharge, openCart}) {
             withCredentials: true
           });
           if(response.status === 200){
-            await setCharge(charge + 1);
+            setCharge(charge + 1);
             console.log(response.data.message)
           } else{
             alter('errore')
