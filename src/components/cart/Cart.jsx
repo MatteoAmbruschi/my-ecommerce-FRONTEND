@@ -65,8 +65,8 @@ export default function Cart ({charge, setCharge, openCart}) {
               withCredentials: true
             });
             if(response.status === 200){
-              setCharge(charge + 1);
-              console.log('aumentato')
+              await setCharge(charge + 1);
+              console.log('diminuito di 1')
             } else{
               console.log('errore')
           }
@@ -77,7 +77,7 @@ export default function Cart ({charge, setCharge, openCart}) {
             withCredentials: true
           });
           if(response.status === 200){
-            setCharge(charge + 1);
+            await setCharge(charge + 1);
             console.log('eliminato')
           } else{
             alter('errore')
@@ -139,7 +139,7 @@ export default function Cart ({charge, setCharge, openCart}) {
       
 
 return (
-    <div onClick={() => {cartMenuOpen === false ? setCartMenuOpen(true) : null}} className={`${styles.cartContainer} ${cartMenuOpen ? styles.expanded : ''}`}href='/'>
+    <div onClick={() => {cartMenuOpen === false ? setCartMenuOpen(true) : null; setCharge(charge + 1)}} className={`${styles.cartContainer} ${cartMenuOpen ? styles.expanded : ''}`}>
     <div className={styles.containerWrite}>
         <div className={styles.textCart}><p>cart:&nbsp;</p>{loggedError ? <Image  src='/asterisco-black2.png' width={17} height={17} alt='asterisco usato come 0' /> : user && user[0].total_elements > 0 ? user.reduce((accumulator, curr) => accumulator + curr.quantita, 0) : 0}</div>
         {cartMenuOpen ? <button className={styles.buttonClose} onClick={() => setCartMenuOpen(false)}>CLOSE</button> : ''}

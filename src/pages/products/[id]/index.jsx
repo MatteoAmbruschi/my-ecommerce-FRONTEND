@@ -40,11 +40,11 @@ export default function Product({charge, setCharge, openCart, setOpenCart}) {
   }, [router.isReady, id]);
 
   const stories = [
-    `Presentiamo il nostro esclusivo <strong>${product?.nome}</strong>, un prodotto di punta nella categoria <strong>${product?.categoria}</strong>. Fabbricato con materiali eccellenti come <strong>${product?.materiali}</strong>, disponibile in diverse taglie, tra cui <strong>${product?.taglie?.join(', ')}</strong>, per assicurare il massimo comfort. Al prezzo di <strong>€${product?.prezzo}</strong>, <strong>${product?.nome}</strong> offre un equilibrio ideale tra eleganza e funzionalità. ${product?.descrizione}`,
-    `Esplora la qualità del <strong>${product?.nome}</strong>, un gioiello nella categoria <strong>${product?.categoria}</strong>. Costruito con materiali di alta gamma come <strong>${product?.materiali}</strong>, e disponibile in taglie come <strong>${product?.taglie?.join(', ')}</strong> per una vestibilità su misura. Con un prezzo di <strong>€${product?.prezzo}</strong>, <strong>${product?.nome}</strong> rappresenta la perfetta combinazione di estetica e utilità. ${product?.descrizione}`,
-    `Scopri l'innovazione del <strong>${product?.nome}</strong>, un prodotto leader nella categoria <strong>${product?.categoria}</strong>. Realizzato con materiali di pregio come <strong>${product?.materiali}</strong>, disponibile in taglie tra cui <strong>${product?.taglie?.join(', ')}</strong> per un comfort eccezionale. Con un prezzo di <strong>€${product?.prezzo}</strong>, <strong>${product?.nome}</strong> unisce design sofisticato e praticità. ${product?.descrizione}`,
-    `Vivi l'esperienza del nostro <strong>${product?.nome}</strong>, un elemento straordinario nella categoria <strong>${product?.categoria}</strong>. Creato con materiali superiori come <strong>${product?.materiali}</strong>, è disponibile in varie taglie, incluso <strong>${product?.taglie?.join(', ')}</strong>, per una vestibilità perfetta. Al prezzo di <strong>€${product?.prezzo}</strong>, <strong>${product?.nome}</strong> offre un mix imbattibile di stile e funzionalità. ${product?.descrizione}`,
-    `Scopri il nostro eccezionale <strong>${product?.nome}</strong>, un prodotto unico nella categoria <strong>${product?.categoria}</strong>. Realizzato con materiali di alta qualità come <strong>${product?.materiali}</strong>, è disponibile in diverse taglie, tra cui <strong>${product?.taglie?.join(', ')}</strong>, per garantirti una vestibilità perfetta. Offerto a un prezzo di <strong>€${product?.prezzo}</strong>, <strong>${product?.nome}</strong> combina stile e funzionalità, ed è ideale per ogni occasione. ${product?.descrizione}`
+    `Introducing our exclusive <strong>${product?.nome}</strong>, a flagship product in the <strong>${product?.categoria}</strong> category. Made with excellent materials such as <strong>${product?.materiali}</strong>, available in various sizes including <strong>${product?.taglie?.join(', ')}</strong>, to ensure maximum comfort. Priced at <strong>€${product?.prezzo}</strong>, <strong>${product?.nome}</strong> offers an ideal balance of elegance and functionality. ${product?.descrizione}`,
+    `Explore the quality of the <strong>${product?.nome}</strong>, a jewel in the <strong>${product?.categoria}</strong> category. Built with high-end materials like <strong>${product?.materiali}</strong>, and available in sizes like <strong>${product?.taglie?.join(', ')}</strong> for a tailored fit. With a price of <strong>€${product?.prezzo}</strong>, <strong>${product?.nome}</strong> represents the perfect combination of aesthetics and utility. ${product?.descrizione}`,
+    `Discover the innovation of the <strong>${product?.nome}</strong>, a leading product in the <strong>${product?.categoria}</strong> category. Made with premium materials like <strong>${product?.materiali}</strong>, available in sizes including <strong>${product?.taglie?.join(', ')}</strong> for exceptional comfort. Priced at <strong>€${product?.prezzo}</strong>, <strong>${product?.nome}</strong> combines sophisticated design and practicality. ${product?.descrizione}`,
+    `Experience our <strong>${product?.nome}</strong>, an extraordinary item in the <strong>${product?.categoria}</strong> category. Created with superior materials like <strong>${product?.materiali}</strong>, it is available in various sizes, including <strong>${product?.taglie?.join(', ')}</strong>, for a perfect fit. Priced at <strong>€${product?.prezzo}</strong>, <strong>${product?.nome}</strong> offers an unbeatable mix of style and functionality. ${product?.descrizione}`,
+    `Discover our exceptional <strong>${product?.nome}</strong>, a unique product in the <strong>${product?.categoria}</strong> category. Made with high-quality materials like <strong>${product?.materiali}</strong>, it is available in various sizes, including <strong>${product?.taglie?.join(', ')}</strong>, to ensure a perfect fit. Offered at a price of <strong>€${product?.prezzo}</strong>, <strong>${product?.nome}</strong> combines style and functionality, making it ideal for any occasion. ${product?.descrizione}`
   ];
   
 
@@ -95,8 +95,8 @@ export default function Product({charge, setCharge, openCart, setOpenCart}) {
             withCredentials: true
           });
           if(response.status === 200){
-            setCharge(charge + 1);
-            setOpenCart(openCart + 1);
+            await setCharge(charge + 1);
+            await setOpenCart(openCart + 1);
             console.log('aumentato')
           } else{
             console.log('errore')
@@ -120,8 +120,8 @@ export default function Product({charge, setCharge, openCart, setOpenCart}) {
     
           if (response.status === 200) {
             setError(false);
-            setCharge(charge + 1);
-            setOpenCart(openCart + 1);
+            await setCharge(charge + 1);
+            await setOpenCart(openCart + 1);
           } else if (response.status === 401) {
             setOpenCart(openCart + 1);
           } else {
