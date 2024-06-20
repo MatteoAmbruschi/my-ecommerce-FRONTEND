@@ -65,7 +65,7 @@ export default function Cart ({charge, setCharge, openCart}) {
               withCredentials: true
             });
             if(response.status === 200){
-              await setCharge(charge + 1);
+              await setCharge(prevCharge => prevCharge + 1);
               console.log(response.data.message)
             } else{
               console.log('errore')
@@ -76,7 +76,7 @@ export default function Cart ({charge, setCharge, openCart}) {
             withCredentials: true
           });
           if(response.status === 200){
-            setCharge(charge + 1);
+            setCharge(prevCharge => prevCharge + 1);
             console.log(response.data.message)
           } else{
             alter('errore')
@@ -106,7 +106,7 @@ export default function Cart ({charge, setCharge, openCart}) {
             localStorage.setItem('authToken', token);
             
             setErrorsPassword('');
-            setCharge(charge + 1)
+            setCharge(prevCharge => prevCharge + 1)
             }
             else {
               console.log('Token non trovato nella risposta.');

@@ -95,7 +95,7 @@ export default function Product({charge, setCharge, openCart, setOpenCart}) {
             withCredentials: true
           });
           if(response.status === 200){
-            await setCharge(charge + 1);
+            await setCharge(prevCharge => prevCharge + 1);
             await setOpenCart(openCart + 1);
             console.log('aumentato')
           } else{
@@ -120,7 +120,7 @@ export default function Product({charge, setCharge, openCart, setOpenCart}) {
     
           if (response.status === 200) {
             setError(false);
-            await setCharge(charge + 1);
+            await setCharge(prevCharge => prevCharge + 1);
             await setOpenCart(openCart + 1);
           } else if (response.status === 401) {
             setOpenCart(openCart + 1);
