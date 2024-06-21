@@ -166,7 +166,7 @@ return (
         :
         !loggedError && cartMenuOpen ?
         <div>
-            {user[0].total_elements > 0 ? 
+            {user && user[0].total_elements > 0 ? 
             <> 
             <hr style={{marginTop:20}} />
               {user.map((key) => (
