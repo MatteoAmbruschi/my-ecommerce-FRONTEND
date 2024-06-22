@@ -200,7 +200,7 @@ return (
               <div className={styles.containerBottom}>
                 <div className={styles.shipping}><p>Shipping:</p> <p>Free</p></div>
                 <div className={styles.totalPrice}><p>Total Price:</p> <p>{user.reduce((accumulator, currentUser) => accumulator + (Number(currentUser.prezzo_tot) || 0), 0).toFixed(2)}€</p></div>
-                <Link scroll={false} href={'/payment'} className={styles.buttonCart}>CART</Link>
+                <Link scroll={false} href={'/payment'} onClick={() => setCartMenuOpen(false)} className={styles.buttonCart}>CART</Link>
               </div>
             </> 
             : 
