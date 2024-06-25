@@ -1,5 +1,6 @@
 import axios from "axios";
 import { useRouter } from "next/router";
+import styles from './payButton.module.css'
 
 const PayButton = ({ cartItems }) => {
     const router = useRouter();
@@ -23,7 +24,7 @@ const PayButton = ({ cartItems }) => {
   
     return (
         <>
-        <button type="submit" onClick={handleCheckout}>Check Out</button>
+        <button type="submit" className={styles.styleButton} onClick={handleCheckout}>Check Out</button>
         </>
     );
   };

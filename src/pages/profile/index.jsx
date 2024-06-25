@@ -68,10 +68,10 @@ export default function Profile({ charge, setCharge}) {
         <Title><h1>Hi, {user.nome}<Image src='/asterisco-black2.png' width={50} height={50} alt='asterisco usato come logo' /></h1></Title>
 
         <section className={styles.parent}>
-         <Link scroll={false} className={styles.selection} href={'/profile/shipments'}>shipments<Image src='/arrow3.png' width={20} height={20} alt='asterisco usato come logo' /></Link>
-         <Link scroll={false} className={styles.selection} href={'/profile/orders'}>Orders<Image src='/arrow3.png' width={20} height={20} alt='asterisco usato come logo' /></Link>
-         <Link scroll={false} className={styles.selection} href={'/profile/details'}>Change details<Image src='/arrow3.png' width={20} height={20} alt='asterisco usato come logo' /></Link>
-         <div className={`${styles.selection} ${styles.logout}`} onClick={logOut}>Log-Out<Image src='/arrow3.png' width={20} height={20} alt='asterisco usato come logo' /></div>
+         <Link scroll={false} className={styles.selection} href={'/profile/shipments'}>shipments<Image src='/arrow3.png' width={20} height={20} alt='arrow' /></Link>
+         <Link scroll={false} className={styles.selection} href={'/profile/orders'}>Orders<Image src='/arrow3.png' width={20} height={20} alt='arrow' /></Link>
+         <Link scroll={false} className={styles.selection} href={'/profile/details'}>Change details<Image src='/arrow3.png' width={20} height={20} alt='arrow' /></Link>
+         <div className={`${styles.selection} ${styles.logout}`} onClick={logOut}>Log-Out<Image src='/arrow3.png' width={20} height={20} alt='arrow' /></div>
         </section>
         
       </div>

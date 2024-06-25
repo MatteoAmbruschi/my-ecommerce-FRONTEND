@@ -1,0 +1,14 @@
+.styleButton {
+    background-color: var(--dark);
+    color: var(--light);
+    width: 100%;
+    height: 100%;
+    border-radius: 13px;
+    transition: all 0.3s cubic-bezier(0.77,0.2,0.05,1.0);
+    flex-grow: 1;
+    margin-top: 20px;
+}
+
+.styleButton:hover{
+    scale: 0.97;
+}
