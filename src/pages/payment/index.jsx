@@ -160,7 +160,7 @@ export default function Payment({ charge, setCharge, openCart }) {
                 <div className={styles.totalPrice}><p>Total Price:</p> <p>{user.reduce((accumulator, currentUser) => accumulator + (Number(currentUser.prezzo_tot) || 0), 0).toFixed(2)}€</p></div>
           
               <Elements stripe={stripePromise}>
-                <PayButton cartItems={user} />
+                <PayButton cartItems={user} setIsLoading={setIsLoading} />
               </Elements>
               </div>
               
