@@ -13,6 +13,8 @@ const PayButton = ({ cartItems, setIsLoading }) => {
             }).then((res) => {
                 if(res.data.url){
                     router.push(res.data.url, undefined, { scroll: false })
+                } else {
+                    setIsLoading(false)
                 }
             }).catch((err) => {
                 console.log(err.message)
