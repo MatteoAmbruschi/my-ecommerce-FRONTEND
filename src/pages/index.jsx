@@ -5,9 +5,35 @@ import FirstWrite from "@/components/firstWrite/FirstWrite";
 import styles from '../styles/home.module.css'
 import Link from 'next/link'
 import Title from "@/components/title/Title";
+import { useState, useEffect } from "react";
 
 
 export default function Home() {
+  const [products, setProducts] = useState()
+
+  const [maglie, setMaglie] = useState()
+  const [pantolini, setPantaloni] = useState()
+  const [scarpe, setScarpe] = useState()
+
+  useEffect(() => {
+    async function handleProducts() {
+      const response = await fetch(process.env.NEXT_PUBLIC_URL + 'allProducts');
+      const json = await response.json();
+
+      setMaglie(() => json.filter((maglie) => maglie.categoria === 'maglietta' ||  maglie.categoria === 'camicia' ||  maglie.categoria === 'giacca'))
+      setPantaloni(() => json.filter((pantalone) => pantalone.categoria === 'pantalone'))
+      setScarpe(() => json.filter((scarpe) => scarpe.categoria === 'scarpe'))
+
+
+      setProducts(json)
+    }
+    handleProducts()
+  }, [])
+
+  const getRandomItems = (array, num) => {
+    return array.sort(() => 0.5 - Math.random()).slice(0, num);
+  }
+
   return (
     <>
       <Head>
@@ -21,15 +47,65 @@ export default function Home() {
         <Title><h1>Home<Image src='/asterisco-black2.png' width={50} height={50} alt='asterisco usato come logo' /></h1></Title>
 
         <Link scroll={false} href='/products'>
-          <div className={styles.containerImg}>
+          <div className={styles.containerImgHome}>
           <Image src='/hero4.jpg' width={2000} height={1000} alt='tappeto turco' quality={100}></Image>
           </div>
         </Link>
 
         <FirstWrite 
-          p1={'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Praesent imperdiet nibh sit amet velit dignissim, non tempus nisl pellentesque. Praesent sagittis magna sit amet ex blandit, id pharetra lectus feugiat. Praesent sit amet congue ipsum, in ultrices neque. In dapibus in purus vitae dignissim. Quisque molestie ullamcorper elementum. Sed sodales erat augue. Lorem ipsum dolor sit amet, consectetur adipiscing elit. Duis aliquet quis lectus vitae venenatis. Aliquam erat volutpat. Nulla maximus sodales nibh dapibus congue. Integer nec pharetra felis, quis commodo elit. Fusce et aliquet neque. Vivamus leo diam, pharetra ut lorem eu, suscipit egestas ipsum. Aenean mauris ligula, laoreet ut volutpat sit amet, convallis et turpis.'} 
-          p2={'Quisque molestie ullamcorper elementum. Sed sodales erat augue. Lorem ipsum dolor sit amet, consectetur adipiscing elit. Duis aliquet quis lectus vitae venenatis. Aliquam erat volutpat. Nulla maximus sodales nibh dapibus congue. Integer nec pharetra felis, quis commodo elit. Fusce et aliquet neque. Vivamus leo diam, pharetra ut lorem eu, suscipit egestas ipsum. Aenean mauris ligula, laoreet ut volutpat sit amet, convallis et turpis.'}
+          p1={'Our online store is a creative collective of artists and designers from around the world. With our disruptive, graphic-led approach, we draw inspiration from post-punk culture, underground comics, skateboarding, and the spirit of subcultures. We are not one person nor one idea. We exist in the space between minds and ideas.'} 
+          p2={'We believe in the union of creativity and quality. Every product we offer is the result of the passion and dedication of our designers. Our mission is to bring unique and original products to those who seek to express their individuality through style and art. Explore our collection and join our community of enthusiasts.'}
         />
+
+        
+        {
+          !pantolini ?
+            <h2>Loading...</h2>
+            :
+            <div className={styles.wrap}>
+
+              {getRandomItems(maglie, 3).map((product) => (
+                <Link scroll={false} key={product.id} href={`/products/${product.id}`} className={styles.container} >
+                  <div className={styles.containerImg}>
+                    <Image src={`/uploads/${product.image_urls[0]}`} fill style={{ objectFit: 'cover' }} alt={`Image of ${product.categoria}`} ></Image>
+                  </div>
+                  <div className={styles.containerText}>
+                    <p>{product.categoria}</p>
+                    <h2>{product.nome}</h2>
+                  </div>
+                  <div href={`/products/${product.id}`} className={styles.button}><p>more details</p> <p>🡪</p></div>
+                </Link>
+              ))}
+
+              {getRandomItems(pantolini, 3).map((product) => (
+                <Link scroll={false} key={product.id} href={`/products/${product.id}`} className={styles.container} >
+                  <div className={styles.containerImg}>
+                    <Image src={`/uploads/${product.image_urls[0]}`} fill style={{ objectFit: 'cover' }} alt={`Image of ${product.categoria}`} ></Image>
+                  </div>
+                  <div className={styles.containerText}>
+                    <p>{product.categoria}</p>
+                    <h2>{product.nome}</h2>
+                  </div>
+                  <div href={`/products/${product.id}`} className={styles.button}><p>more details</p> <p>🡪</p></div>
+                </Link>
+              ))}
+
+              {getRandomItems(scarpe, 3).map((product) => (
+                <Link scroll={false} key={product.id} href={`/products/${product.id}`} className={styles.container} >
+                  <div className={styles.containerImg}>
+                    <Image src={`/uploads/${product.image_urls[0]}`} fill style={{ objectFit: 'cover' }} alt={`Image of ${product.categoria}`} ></Image>
+                  </div>
+                  <div className={styles.containerText}>
+                    <p>{product.categoria}</p>
+                    <h2>{product.nome}</h2>
+                  </div>
+                  <div href={`/products/${product.id}`} className={styles.button}><p>more details</p> <p>🡪</p></div>
+                </Link>
+              ))}
+
+            </div>
+        }
+
       </Layout>
     </>
   );
