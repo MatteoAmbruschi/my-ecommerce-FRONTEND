@@ -60,7 +60,12 @@ export default function Profile({ charge, setCharge}) {
     <Layout>
       {!user ? (
         <div className={styles.error}>
-          <h2>{error ? error : 'Loading'}<Image src='/asterisco-black2.png' width={50} height={50} alt='asterisco usato come logo' /></h2>
+          <Title>
+            <h1>{error ? <div style={{fontSize: 120, paddingTop: '10%', display: 'inline-block'}}>{error}</div> : 'Hi, ....'}
+              <Image src='/asterisco-black2.png' width={50} height={50} alt='asterisco usato come logo' />
+            </h1>
+          </Title>
+          <h2>{!error && 'Loading...'}</h2>
         </div>
       ) : (
         

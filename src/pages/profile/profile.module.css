@@ -6,12 +6,6 @@
    height: 100vh; 
 }
 
-.error h2 {
-    font-size: 120px;
-    padding-top: 10%;
-    display: inline-block;
-}
-
 .error img {
     display: inline;
     vertical-align: baseline;

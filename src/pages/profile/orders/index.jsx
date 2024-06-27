@@ -54,7 +54,7 @@ const OrdersComponent = () => {
       {error ? (
         <div className={styles.error}><h2><i>{error}<Image src='/asterisco-black2.png' width={20} height={20} alt='asterisco usato come logo' /></i></h2></div>
       ) : !ship ? (
-        <div>Loading...</div>
+        <h2>Loading...</h2>
       ) : (
         <>
         <div className={styles.container}>

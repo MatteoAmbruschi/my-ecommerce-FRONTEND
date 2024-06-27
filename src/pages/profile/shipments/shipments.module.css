@@ -51,6 +51,24 @@
     background-color: var(--light);
  }
 
+
+.eliminate {
+   color: var(--dark);
+   transition: all 0.3s cubic-bezier(0.77,0.2,0.05,1.0);
+   border-bottom: 1px solid var(--dark);
+   border-left: 1px solid var(--dark);
+   position: absolute;
+   top: 0;
+   right: 0;
+   padding: 5px 10px;
+   z-index: 1;
+   background-color: var(--light);
+ }
+ 
+ .eliminate:hover {
+   color: var(--error);
+ }
+
  .containerInfo{
     display: flex;
     justify-content: space-between;
