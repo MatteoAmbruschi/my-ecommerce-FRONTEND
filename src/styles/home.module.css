@@ -7,11 +7,11 @@
     overflow: hidden;
 }
 
-.containerImg img{
+.containerImgHome img{
     transition: all 0.4s cubic-bezier(0.77,0.2,0.05,1.0);
 }
 
-.containerImg:hover > img{
+.containerImgHome:hover > img{
  scale: 0.96;
 }
 
@@ -22,7 +22,9 @@
         display: grid;
         grid-template-rows: repeat(auto-fit, 1fr);
         grid-template-columns: repeat(3, 1fr);
-        gap: 70px;
+        gap: 20px 17%;
+        width: 100%;
+        margin: 0 auto;
     }
 
     
@@ -43,8 +45,8 @@
     top: 0;
     left: 0;
     width: 100%;
-    height: 570px;
-    border-radius: 30px;
+    height: 460px;
+    border-radius: 20px;
     overflow: hidden;
     transition: all 0.5s cubic-bezier(0.77,0.2,0.05,1.0);
     box-shadow: 0px 0px 16px 0px rgba(13, 13, 13, 0.2);
@@ -56,8 +58,7 @@
 }
 
 .container:hover >  .containerImg{
-    height: 103%;
-    border-radius: 50px;
+    border-radius: 30px;
 }
 
 .container:hover img {
@@ -72,7 +73,7 @@
     padding: 5% 8%; 
     display: flex;
     flex-direction: column;
-    height: 570px;
+    height: 370px;
     justify-content: flex-end;
     mix-blend-mode: difference ;
     transition: all 0.5s cubic-bezier(0.77,0.2,0.05,1.0);
@@ -82,12 +83,16 @@
     color: var(--light);
 }
 
+.containerText h2 {
+    line-height: 60px;
+}
+
 
 .button {
     border: 1px solid var(--dark);
     border-radius: 25px;
     padding: 15px 10%;
-    margin-top: 4%;
+    margin: 4% 5%;
     position: relative;
     display: flex;
     justify-content: space-between;
@@ -104,4 +109,25 @@
 
 .container:hover > .button p:nth-child(2) {
     font-weight: bold;
+}
+
+.buttonShuffle {
+    margin: 150px 0 50px 0;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background-color: var(--dark);
+    color: var(--light);
+    border: 1px solid var(--dark);
+    width: 100%;
+    border-radius: 20px;
+    height: 50px;
+    transition: all 0.4s cubic-bezier(0.77,0.2,0.05,1.0);
+    box-shadow: 0px 0px 16px 0px rgba(13, 13, 13, 0.5);
+}
+
+.buttonShuffle:hover {
+    scale: 0.97;
+    color: var(--dark);
+    background-color: var(--light);
 }

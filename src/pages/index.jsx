@@ -9,7 +9,7 @@ import { useState, useEffect } from "react";
 
 
 export default function Home() {
-  const [products, setProducts] = useState()
+  const [shuffle, setShuffle] = useState(0)
 
   const [maglie, setMaglie] = useState()
   const [pantolini, setPantaloni] = useState()
@@ -23,15 +23,17 @@ export default function Home() {
       setMaglie(() => json.filter((maglie) => maglie.categoria === 'maglietta' ||  maglie.categoria === 'camicia' ||  maglie.categoria === 'giacca'))
       setPantaloni(() => json.filter((pantalone) => pantalone.categoria === 'pantalone'))
       setScarpe(() => json.filter((scarpe) => scarpe.categoria === 'scarpe'))
-
-
-      setProducts(json)
     }
     handleProducts()
-  }, [])
+  }, [shuffle])
 
   const getRandomItems = (array, num) => {
     return array.sort(() => 0.5 - Math.random()).slice(0, num);
+  }
+
+  const handleShuffle = () => {
+    setShuffle((prevShuffle) => prevShuffle + 1)
+    console.log(shuffle)
   }
 
   return (
@@ -59,9 +61,11 @@ export default function Home() {
 
         
         {
-          !pantolini ?
-            <h2>Loading...</h2>
+          !pantolini || !maglie || !scarpe ?
+            <h2 style={{marginTop: 150}}>Loading...</h2>
             :
+            <>
+            <button className={styles.buttonShuffle} onClick={handleShuffle}>SHUFFLE</button>
             <div className={styles.wrap}>
 
               {getRandomItems(maglie, 3).map((product) => (
@@ -104,6 +108,7 @@ export default function Home() {
               ))}
 
             </div>
+          </>
         }
 
       </Layout>
