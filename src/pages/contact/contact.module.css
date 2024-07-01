@@ -1,0 +1,10 @@
+.contactContainer {
+    margin: 80px 0;
+}
+
+.buttonLoading {
+    background-color: var(--light) !important;
+    color: var(--dark) !important;
+    border: 1px solid var(--dark) !important;
+    scale: 0.97;
+}

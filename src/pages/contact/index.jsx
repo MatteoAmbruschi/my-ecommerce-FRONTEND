@@ -12,6 +12,9 @@ import styles from './contact.module.css'
 export default function Contact() {
   const [formData, setFormData] = useState({ nome: '', cognome: '', email: '', message: '' });
   const [errors, setErrors] = useState('')
+
+  const [loading, setLoading] = useState(false)
+  
   const router = useRouter()
 
   const handleChange = (e) => {
@@ -21,6 +24,35 @@ export default function Contact() {
 
    const handleSubmit = async (e) => {
     e.preventDefault()
+    setLoading(true)
+
+    try {
+      console.log(formData)
+        const res = await fetch(process.env.NEXT_PUBLIC_URL + 'email/mailer', {
+          method: 'POST',
+          body: JSON.stringify({formData: formData}),
+          headers: {
+            'Content-Type': 'application/json',
+            Accept: "application/json",
+          },
+        })
+
+        console.log("Response from server:", res.status);
+
+        if (res.status === 200) {
+          router.push('/contact/thank-you', undefined, { scroll: false });
+        }
+        else {
+          const errorData = await res.json();
+          console.log('Non 200:', errorData.message);
+          setErrors(errorData.message);
+        }
+      } catch (error) {
+        setErrors('An error occurred while submitting the form.');
+        console.error("Error submitting form:", formData);
+      } finally {
+        setLoading(false)
+      }
    }
    
 
@@ -36,7 +68,7 @@ export default function Contact() {
         p2={'Our store was established in 2015 by two lifelong friends, Matteo Rossi and Luca Bianchi, who shared a passion for fashion and a dream of creating their own brand. With backgrounds in fashion design and business management, they combined their skills and vision to bring this project to life. Their goal was to create a store that not only offered stylish, contemporary clothing but also promoted sustainable and ethical practices in the fashion industry.'}
         />
 
-            <form onSubmit={handleSubmit} className={stylesForm.formContainer}>
+            <form onSubmit={handleSubmit} className={`${stylesForm.formContainer} ${styles.contactContainer}`}>
               <h2>Write Us Below</h2>
 
               <div className={stylesForm.names}>
@@ -54,9 +86,9 @@ export default function Contact() {
                 <input type="email" id="email" name="email" value={formData.email} onChange={handleChange} placeholder="Email" required />
                 
                 <label htmlFor="message"><i>Message:</i></label>
-                <textarea type="text" id="message" name="message" minLength={6} maxLength={12} value={formData.message} onChange={handleChange} placeholder="Message" required />
+                <textarea type="text" id="message" name="message" maxLength={2000} value={formData.message} onChange={handleChange} placeholder="Message" required />
                 
-                <button type="submit">SEND EMAIL</button>
+                <button disabled={loading} className={`${loading ? styles.buttonLoading  : ''}`} type="submit">SEND EMAIL</button>
 
                 <p className={stylesForm.err}>{errors}</p>
             </form>
