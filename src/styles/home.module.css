@@ -1,6 +1,6 @@
 .containerImgHome{
     border: 6px solid var(--dark);
-    margin-bottom: 75px;
+    margin: 50px 0 75px 0;
     width: 100%;
     box-shadow: 0px 0px 16px 0px rgba(13, 13, 13, 0.5);
     border-radius: 18px;
@@ -112,7 +112,7 @@
 }
 
 .buttonShuffle {
-    margin: 150px 0 50px 0;
+    margin: 50px 0 50px 0;
     display: flex;
     justify-content: center;
     align-items: center;
@@ -130,4 +130,9 @@
     scale: 0.97;
     color: var(--dark);
     background-color: var(--light);
+}
+
+.h2Choice {
+    margin-top: 180px;
+    font-size: 90px;
 }

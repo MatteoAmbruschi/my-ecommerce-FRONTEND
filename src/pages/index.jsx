@@ -33,7 +33,6 @@ export default function Home() {
 
   const handleShuffle = () => {
     setShuffle((prevShuffle) => prevShuffle + 1)
-    console.log(shuffle)
   }
 
   return (
@@ -48,16 +47,19 @@ export default function Home() {
       <Layout>
         <Title><h1>Home<Image src='/asterisco-black2.png' width={50} height={50} alt='asterisco usato come logo' /></h1></Title>
 
+        <FirstWrite 
+          h22={"A Creative Collective"}
+          p1={'Our online store is a creative collective of artists and designers from around the world. With our disruptive, graphic-led approach, we draw inspiration from post-punk culture, underground comics, skateboarding, and the spirit of subcultures. We are not one person nor one idea. We exist in the space between minds and ideas.'} 
+          h23={"Creativity and Quality"}
+          p2={'We believe in the union of creativity and quality. Every product we offer is the result of the passion and dedication of our designers. Our mission is to bring unique and original products to those who seek to express their individuality through style and art. Explore our collection and join our community of enthusiasts.'}
+        />
+
+
         <Link scroll={false} href='/products'>
           <div className={styles.containerImgHome}>
           <Image src='/hero4.jpg' width={2000} height={1000} alt='tappeto turco' quality={100}></Image>
           </div>
         </Link>
-
-        <FirstWrite 
-          p1={'Our online store is a creative collective of artists and designers from around the world. With our disruptive, graphic-led approach, we draw inspiration from post-punk culture, underground comics, skateboarding, and the spirit of subcultures. We are not one person nor one idea. We exist in the space between minds and ideas.'} 
-          p2={'We believe in the union of creativity and quality. Every product we offer is the result of the passion and dedication of our designers. Our mission is to bring unique and original products to those who seek to express their individuality through style and art. Explore our collection and join our community of enthusiasts.'}
-        />
 
         
         {
@@ -65,6 +67,7 @@ export default function Home() {
             <h2 style={{marginTop: 150}}>Loading...</h2>
             :
             <>
+            <h2 className={styles.h2Choice}>Take Your Choice<Image src='/asterisco-black2.png' width={40} height={40} alt='asterisco usato come logo' /></h2>
             <button className={styles.buttonShuffle} onClick={handleShuffle}>SHUFFLE</button>
             <div className={styles.wrap}>
 

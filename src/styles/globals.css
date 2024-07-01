@@ -55,7 +55,7 @@ h1 {
     color: var(--dark);
 }
 
-h1 img {
+h1 img,  h2 img{
     display: inline;
     vertical-align: baseline;
 }

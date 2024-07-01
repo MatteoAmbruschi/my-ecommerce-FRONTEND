@@ -1,9 +1,8 @@
 .container {
     padding-top: 30px;
-    display: flex;
-    flex-direction: row;
-}
 
-.container p:nth-child(1) {
-    margin: 0 100px 0 0;
+    display: grid;
+    grid-template-rows: repeat(auto-fit, 1fr);
+    grid-template-columns: repeat(2, 1fr);
+    gap: 0px 130px;
 }
