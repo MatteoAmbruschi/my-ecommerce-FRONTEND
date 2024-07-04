@@ -57,7 +57,7 @@ export default function Home() {
 
         <Link scroll={false} href='/products'>
           <div className={styles.containerImgHome}>
-          <Image src='/hero4.jpg' width={2000} height={1000} alt='tappeto turco' quality={100}></Image>
+          <Image src='/hero4.jpg' fill={true} alt='tappeto turco' quality={100}></Image>
           </div>
         </Link>
 

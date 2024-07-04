@@ -53,6 +53,8 @@ h1 {
     letter-spacing: 0.01px;
     font-weight: 500;
     color: var(--dark);
+    line-height: 220px;
+    padding: 65px 0;
 }
 
 h1 img,  h2 img{
@@ -65,6 +67,8 @@ h2 {
     letter-spacing: 0.01px;
     font-weight: 500;
     color: var(--dark);
+    line-height: 50px;
+    padding: 15px 0;
 }
 
 
@@ -101,3 +105,41 @@ h2 {
 .splide__arrow svg {
     fill: var(--dark);
 }
+
+
+@media (min-width: 768px) and (max-width: 1280px) {
+  
+    p {
+        font-size: 15px;
+    }
+    
+    h1 {
+        font-size: 19vw;
+        letter-spacing: 0.01px;
+        font-weight: 500;
+        color: var(--dark);
+        line-height: 17vw;
+        padding: 7vw 0;
+    }
+    
+    h1 img{
+        width: auto;
+        height: 3vw;
+        margin: 0 -10px;
+    }
+    h2 img {
+        width: auto;
+        height: 2vw;
+        margin: 0 0px;
+    }
+
+
+    h2 {
+        font-size: 4.6vw;
+        letter-spacing: 0.01px;
+        font-weight: 500;
+        color: var(--dark);
+        line-height: 4.6vw;
+        padding: 2vw 0;
+    }
+  }

@@ -89,3 +89,29 @@
 .container:hover > .button p:nth-child(2) {
     font-weight: bold;
 }
+
+@media (min-width: 768px) and (max-width: 1280px) {
+    .wrap {
+            grid-template-columns: repeat(2, 1fr);
+            gap: 70px;
+        }
+        
+        .containerImg{
+            height: 450px;
+        }
+        
+        .container:hover >  .containerImg{
+            border-radius: 40px;
+        }
+        
+        
+        .containerText {
+            height: 450px;
+        }
+        
+        
+        .button {
+            padding: 15px 10%;
+            font-size: 16px;
+        }
+}

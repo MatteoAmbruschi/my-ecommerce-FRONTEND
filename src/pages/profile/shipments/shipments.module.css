@@ -77,3 +77,60 @@
     padding: 5px;
     margin-bottom: 8px;
  }
+
+ .containerImg {
+   position: relative;
+   height: 300px;
+   width: 270px;
+ }
+
+ @media (min-width: 768px) and (max-width: 1280px) {
+  
+   .container {
+     display: grid;
+     grid-template-columns: repeat(3, 1fr);
+   }
+  
+   .itemContainer {
+      margin: 10px;
+      border: 1px solid var(--dark);
+      background-color: var(--light);
+      max-width: 222px;
+   }
+  
+   .containerImg {
+      position: relative;
+      height: 300px;
+      width: 220px;
+    }
+    
+   .listInfo{
+      padding: 30px;
+   }
+  
+  .listInfo li {
+      font-size: 12px;
+  }
+  
+  .listInfo li p{
+      font-size: 15px;
+   }
+  
+   .stato {
+      padding: 4px;
+   }
+  
+  
+  .eliminate {
+     padding: 4px 8px;
+   }
+  
+   .containerInfo{
+      padding: 4px;
+      margin-bottom: 8px;
+   }
+   
+   .fontSize {
+      font-size: 17.5vw;
+   }
+}

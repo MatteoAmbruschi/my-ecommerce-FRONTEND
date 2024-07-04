@@ -5,10 +5,13 @@
     box-shadow: 0px 0px 16px 0px rgba(13, 13, 13, 0.5);
     border-radius: 18px;
     overflow: hidden;
+    position: relative;
+    height: 720px;
 }
 
 .containerImgHome img{
     transition: all 0.4s cubic-bezier(0.77,0.2,0.05,1.0);
+    object-fit: cover;
 }
 
 .containerImgHome:hover > img{
@@ -135,4 +138,38 @@
 .h2Choice {
     margin-top: 180px;
     font-size: 90px;
+}
+
+@media (min-width: 768px) and (max-width: 1280px) {
+    .containerImgHome{
+        border: 5px solid var(--dark);
+        margin: 50px 0 65px 0;
+        height: 620px;
+    }
+    
+    .wrap {
+            grid-template-columns: repeat(2, 1fr);
+            gap: 20px 17%;
+        }
+    
+    
+    .containerImg{
+        height: 450px;
+    }
+    
+    
+    .containerText {
+        height: 360px;
+    }
+    
+    .containerText h2 {
+        line-height: 50px;
+    }
+    
+    
+    .h2Choice {
+        margin-top: 180px;
+        font-size: 90px;
+        line-height: 90px;
+    }
 }

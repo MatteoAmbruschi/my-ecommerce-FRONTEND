@@ -46,3 +46,24 @@
     display: inline;
     margin-left: 5px;
 }
+
+
+@media (min-width: 768px) and (max-width: 1280px) {
+    .parent {
+        margin-top: 30px;
+        display: grid;
+        grid-template-columns: repeat(2, 1fr);
+        grid-column-gap: 5%;
+        grid-row-gap: 10%;
+    }
+    
+    .selection{
+        text-transform: uppercase;
+        border: 1px solid var(--dark);
+        padding: 20px;
+        border-radius: 10px;
+        font-size: 40px;
+        line-height: 50px;
+        padding: 40px 50px 70px 40px;
+    }
+}

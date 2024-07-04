@@ -75,7 +75,7 @@ const ShipUserComponent = () => {
   }
   return (
     <Layout>
-    <Title><h1>Shipments<Image src='/asterisco-black2.png' width={50} height={50} alt='asterisco usato come logo' /></h1></Title>
+    <Title><h1 className={styles.fontSize}>Shipments<Image src='/asterisco-black2.png' width={50} height={50} alt='asterisco usato come logo' /></h1></Title>
       {error ? (
         <div className={styles.error}><h2><i>{error}<Image src='/asterisco-black2.png' width={20} height={20} alt='asterisco usato come logo' /></i></h2></div>
       ) : !ship ? (
@@ -85,7 +85,7 @@ const ShipUserComponent = () => {
         <div className={styles.container}>
           {ship.map((item) => (
               <ul key={item.id} className={styles.itemContainer}>
-                <div style={{ position: 'relative', height: '300px', width: '270px' }}>
+                <div className={styles.containerImg}>
                   <div className={styles.stato}><p>{item.stato}</p></div>
 
                   <button className={styles.eliminate} onClick={() => handleDeleteShip(item.carrello_id)}>

@@ -60,7 +60,7 @@ const OrdersComponent = () => {
         <div className={styles.container}>
           {ship.map((item, index) => (
               <ul key={item.id} className={styles.itemContainer} onClick={() => {setPopUp(!popUp), setIdClicked(index)}} >
-                <div style={{ position: 'relative', height: '300px', width: '270px' }}>
+                <div className={styles.containerImg}>
                   <div className={styles.stato}><p>{new Date(item.data_ordine).toLocaleDateString()}</p></div>
                   <Image src={`/uploads/${item.image_urls[0]}`} fill style={{objectFit: 'cover'}} alt={`Image of ${item.categoria}`}></Image>
                 </div>
