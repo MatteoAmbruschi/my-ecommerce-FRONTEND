@@ -205,9 +205,10 @@
     }
     
     .containerRight {
-        width: 70%;
+        width: 90% !important;
         margin: 0 auto;
-        margin-bottom: 35px;
+        margin-bottom: 35px !important;
+        height: 100% !important;
     }
     
     .dividers {
