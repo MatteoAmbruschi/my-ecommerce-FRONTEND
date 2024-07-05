@@ -1,5 +1,5 @@
 import Layout from "@/components/Layout";
-import styles from './product.module.css'
+import styles from './product.module.css';
 import Image from "next/image";
 import { useState, useEffect } from "react";
 import { useRouter } from "next/router";

@@ -128,3 +128,51 @@
       line-height: 7.5vw;
     }
   }
+
+
+
+  @media (max-width: 767px) {
+
+    .containerTop {
+      flex-direction: column;
+  }
+
+    .footerContainer {
+      padding: 30px 0;
+  }
+  
+  .containerClock {
+      font-size: 14px;
+      margin-top: 14px;
+  }
+  
+  .containerClock p {
+      font-size: 14px;
+  }
+  
+  .clock {
+      margin: 0 7px;
+      width: 56px;
+  }
+  
+    .containerImg img{
+      height: 35px;
+      width: auto;
+      margin-top: 14px;
+    }
+  
+    .newsLetter p {
+      font-size: 14px;
+    }
+
+  
+    .containerCenter {
+      padding: 120px 0;
+    }
+  
+    .containerCenter p {
+      font-size: 5.4vw;
+      line-height: 7.5vw;
+    }
+  
+  }

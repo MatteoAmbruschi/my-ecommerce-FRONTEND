@@ -22,3 +22,9 @@
         margin: 60px 0;
     }    
 }
+
+@media (max-width: 767px) {
+    .contactContainer {
+        margin: 48px 0;
+    }    
+}

@@ -67,3 +67,19 @@
         padding: 40px 50px 70px 40px;
     }
 }
+
+
+@media (max-width: 767px) {
+    .parent {
+        grid-template-columns: repeat(1, 1fr);
+        grid-row-gap: 20px;
+    }
+    
+    .selection{
+        padding: 18px;
+        border-radius: 8px;
+        font-size: 36px;
+        line-height: 46px;
+        padding: 37px 56px 65px 37px;
+    }
+}

@@ -233,6 +233,7 @@
 .linkSign{
   margin-top: 7px;
   margin-top: 20px;
+  padding: 16px;
 }
 
 .writeLogged {
@@ -314,8 +315,9 @@
   }
 
   .linkSign{
-    margin-top: 5px;
-    margin-top: 18px;
+    margin-top: 4px;
+    margin-top: 16px;
+    padding: 12px;
   }
 
   .writeLogged {

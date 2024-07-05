@@ -2,8 +2,8 @@ import Image from "next/image";
 import Head from "next/head";
 import Layout from "@/components/Layout";
 import FirstWrite from "@/components/firstWrite/FirstWrite";
-import styles from '../styles/home.module.css'
-import Link from 'next/link'
+import styles from '../styles/home.module.css';
+import Link from 'next/link';
 import Title from "@/components/title/Title";
 import { useState, useEffect } from "react";
 

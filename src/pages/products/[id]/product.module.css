@@ -168,6 +168,7 @@
     }
     
     .cart {
+        border-radius: 20px !important;
         height: 70px;
     }
     
@@ -187,5 +188,52 @@
     .size svg {
         width: 40px;
         height: 40px;
+    }
+}
+
+
+@media (max-width: 767px) {
+    .container{ 
+        display: flex;
+        flex-wrap: wrap;
+    }
+
+
+    .containerLeft {
+        width: 100%;
+        order: 1;
+    }
+    
+    .containerRight {
+        width: 70%;
+        margin: 0 auto;
+        margin-bottom: 35px;
+    }
+    
+    .dividers {
+        margin: 40px 0 !important;
+    }
+    
+    .cart {
+        border-radius: 15px !important;
+        height: 60px !important;
+        margin-right: 3% !important;
+    }
+
+    .sizes {
+        padding: 20px 0;
+    }
+    
+    .sizes p {
+        font-size: 16px;
+    }
+    .size {
+        border-radius: 16px !important;
+        padding: 12px;
+    }
+
+    .size svg {
+        width: 36px;
+        height: 36px;
     }
 }
