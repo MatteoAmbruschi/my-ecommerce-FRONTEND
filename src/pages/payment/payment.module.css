@@ -248,4 +248,13 @@
       height: auto;
       padding-right: 5px;
     }
+
+    .buttons {
+      display: flex;
+      flex-direction: column;
+    }
+
+    .buttons button:nth-child(2){
+      margin-top: 23px;
+    }
   }
