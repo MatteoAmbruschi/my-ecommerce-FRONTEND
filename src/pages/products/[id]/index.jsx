@@ -1,5 +1,4 @@
 import Layout from "@/components/Layout";
-import styles from './product.module.css';
 import Image from "next/image";
 import { useState, useEffect } from "react";
 import { useRouter } from "next/router";
@@ -8,6 +7,7 @@ import { Splide, SplideSlide } from '@splidejs/react-splide';
 import axios from "axios";
 
 import '@splidejs/react-splide/css';
+import styles from './product.module.css';
 
 
 export default function Product({charge, setCharge, openCart, setOpenCart}) {
