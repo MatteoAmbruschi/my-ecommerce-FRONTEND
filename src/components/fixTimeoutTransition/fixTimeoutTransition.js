@@ -1,4 +1,4 @@
-import Router from 'next/router'
+/* import Router from 'next/router'
 
 export const fixTimeoutTransition = (timeout) => {
     Router.events.on('beforeHistoryChange', () => {
@@ -26,4 +26,4 @@ export const fixTimeoutTransition = (timeout) => {
 
         Router.events.on('routeChangeComplete', handler);
     });
-};
+}; */

@@ -1,10 +1,13 @@
 import Image from "next/image";
 import Head from "next/head";
-import Layout from "@/components/Layout";
+import dynamic from "next/dynamic";
+
+const Layout  = dynamic(() =>import("@/components/Layout"));
 import { useState, useEffect } from "react";
 import Link from "next/link";
 import styles from './products.module.css'
-import Title from "@/components/title/Title";
+const Title  = dynamic(() =>import("@/components/title/Title"));
+
 
 export default function Products() {
   const [products, setProducts] = useState()
