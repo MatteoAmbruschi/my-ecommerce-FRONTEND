@@ -172,6 +172,10 @@
         height: 70px;
     }
     
+    .size {
+        border-radius: 20px;
+        padding: 14px;
+    }
 
     .sizes {
         padding: 22px 0;
@@ -180,11 +184,6 @@
     .sizes p {
         font-size: 18px;
     }
-    .size {
-        border-radius: 20px;
-        padding: 14px;
-    }
-
     .size svg {
         width: 40px;
         height: 40px;
@@ -220,17 +219,18 @@
         height: 60px !important;
         margin-right: 3% !important;
     }
-
+    
+    .size {
+        border-radius: 16px !important;
+        padding: 12px;
+    }
+    
     .sizes {
         padding: 20px 0;
     }
     
     .sizes p {
         font-size: 16px;
-    }
-    .size {
-        border-radius: 16px !important;
-        padding: 12px;
     }
 
     .size svg {

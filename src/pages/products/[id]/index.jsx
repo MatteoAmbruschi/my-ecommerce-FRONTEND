@@ -7,8 +7,6 @@ import Title from "@/components/title/Title";
 import { Splide, SplideSlide } from '@splidejs/react-splide';
 import axios from "axios";
 
-import '@splidejs/react-splide/css';
-
 
 export default function Product({charge, setCharge, openCart, setOpenCart}) {
   const [product, setProduct] = useState();
