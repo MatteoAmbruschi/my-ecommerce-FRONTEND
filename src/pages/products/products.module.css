@@ -119,7 +119,7 @@
 @media (max-width: 767px) {
     .wrap {
         grid-template-columns: repeat(1, 1fr);
-        gap: 55px;
+        gap: 50px;
     }
     
     .containerImg{
