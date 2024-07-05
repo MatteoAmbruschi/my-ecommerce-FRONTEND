@@ -1,29 +1,16 @@
 import Router from 'next/router'
 
-export const fixTimeoutTransition = (timeout) => {
-    Router.events.on('beforeHistoryChange', () => {
-        const nodes = document.querySelectorAll('link[rel=stylesheet], style:not([media=x])');
-        const copies = [...nodes].map((el) => el.cloneNode(true));
-
-        for (let copy of copies) {
-            copy.removeAttribute('data-n-p');
-            copy.removeAttribute('data-n-href');
-
-            document.head.appendChild(copy);
-        }
-
-        const handler = () => {
-            Router.events.off('routeChangeComplete', handler);
-
-            window.setTimeout(() => {
-                for (let copy of copies) {
-                    if (document.head.contains(copy)) {
-                        document.head.removeChild(copy);
-                    }
-                }
-            }, timeout);
+export const fixTimeoutTransition = () => {
+    const routeChange = () => {
+        const tempFix = () => {
+          const allStyleElems = document.querySelectorAll('style[media="x"]');
+          allStyleElems.forEach((elem) => {
+            elem.removeAttribute("media");
+          });
         };
-
-        Router.events.on('routeChangeComplete', handler);
-    });
+        tempFix();
+      };
+  
+     Router.events.on("routeChangeComplete", routeChange );
+     Router.events.on("routeChangeStart", routeChange );
 };
