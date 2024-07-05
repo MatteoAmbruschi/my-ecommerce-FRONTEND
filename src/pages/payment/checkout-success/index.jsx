@@ -2,7 +2,7 @@ import Layout from "@/components/Layout";
 import Title from "@/components/title/Title";
 import Image from "next/image";
 import Link from 'next/link';
-import styles from './checkout.module.css'
+import styles from './checkout.module.css';
 import { useRouter } from 'next/router';
 
 

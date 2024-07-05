@@ -8,7 +8,7 @@ export default function ThankYou() {
 
     return (
         <Layout>
-                <Title><h1>Thank-you<Image src='/asterisco-black2.png' width={50} height={50} alt='asterisco usato come logo' /></h1></Title>
+                <Title><h1>Thank You<Image src='/asterisco-black2.png' width={50} height={50} alt='asterisco usato come logo' /></h1></Title>
                 <div className={styles.containerWrite}>
                     <FirstWrite 
                     h22={'Thank You for Contacting Us'}

@@ -6,3 +6,11 @@
     grid-template-columns: repeat(2, 1fr);
     gap: 0px 130px;
 }
+
+
+@media (min-width: 768px) and (max-width: 1280px) {
+    .container {
+        padding-top: 20px;
+        gap: 0px 90px;
+    }
+}
