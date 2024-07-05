@@ -202,7 +202,7 @@ export default function Product({charge, setCharge, openCart, setOpenCart}) {
               <Image src={`/uploads/${product.image_urls[0]}`} width={700} height={1200} alt={`Image of ${product.categoria}`}/>
             </SplideSlide>
             <SplideSlide>
-              <Image src={`/uploads/${product.image_urls[1]}`} width={1000} height={1500} alt={`Image of ${product.categoria}`}/>
+              <Image src={`/uploads/${product.image_urls[1]}`} width={700} height={1200} alt={`Image of ${product.categoria}`}/>
             </SplideSlide>
           </Splide>
           </div>

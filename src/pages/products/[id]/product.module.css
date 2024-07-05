@@ -18,6 +18,11 @@
     cursor: -moz-grab;
     cursor: -webkit-grab;
 }
+
+.containerRight img {
+    object-fit: cover !important;
+}
+
 .grabbing {
     cursor: grabbing;
     cursor: -moz-grabbing;
@@ -143,6 +148,16 @@
 .arrowRotate svg {
     rotate: -180deg;
 }
+.containerImgSplide {
+    position: relative;
+    width: 600px;
+    height: 300px;
+    object-fit: cover;
+}
+
+.containerImgSplide img {
+    object-fit: cover;
+}
 
 @media (min-width: 768px) and (max-width: 1280px) {
 
@@ -236,5 +251,11 @@
     .size svg {
         width: 36px;
         height: 36px;
+    }
+
+    .containerRight img {
+        width: 800px !important;
+        height: 500px !important;
+        object-fit: cover !important;
     }
 }
