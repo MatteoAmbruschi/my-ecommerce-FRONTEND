@@ -42,7 +42,7 @@ export default function Products() {
                         <h2>{product.nome}</h2>
                       </div>
 
-                        <div href={`/products/${product.id}`} className={styles.button}><p>more details</p> <p>🡪</p></div>
+                        <div href={`/products/${product.id}`} className={styles.button}><p>more details</p> <p><Image src='/right-arrow.png' width={20} height={20} /></p></div>
                   
                 </Link>
               )
