@@ -11,9 +11,14 @@ export default function Products() {
 
   useEffect(() => {
     async function handleProducts() {
+      try {
       const response = await fetch(process.env.NEXT_PUBLIC_URL + 'allProducts');
       const json = await response.json();
       setProducts(json)
+      }
+      catch(err) {
+        console.log(err)
+      }
     }
     handleProducts()
   }, [])

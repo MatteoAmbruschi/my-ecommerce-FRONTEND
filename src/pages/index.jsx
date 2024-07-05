@@ -17,13 +17,17 @@ export default function Home() {
 
   useEffect(() => {
     async function handleProducts() {
+      try {
       const response = await fetch(process.env.NEXT_PUBLIC_URL + 'allProducts');
       const json = await response.json();
-
       setMaglie(() => json.filter((maglie) => maglie.categoria === 'maglietta' ||  maglie.categoria === 'camicia' ||  maglie.categoria === 'giacca'))
       setPantaloni(() => json.filter((pantalone) => pantalone.categoria === 'pantalone'))
       setScarpe(() => json.filter((scarpe) => scarpe.categoria === 'scarpe'))
     }
+    catch (err) {
+      console.log(err)
+    }
+  }
     handleProducts()
   }, [shuffle])
 
