@@ -10,7 +10,7 @@ import Link from "next/link";
 import Title from "@/components/title/Title";
 
 
-export default function Payment({ charge, setCharge, openCart }) {
+export default function Payment({ charge, setCharge }) {
   const [user, setUser] = useState(null);
   const [loggedError, setLoggedError] = useState('');
   const [isLoading, setIsLoading] = useState(true);

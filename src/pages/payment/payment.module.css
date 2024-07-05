@@ -133,3 +133,141 @@
     margin-top: 23px;
     padding-bottom: 23px;
   }
+
+
+  @media (min-width: 768px) and (max-width: 1280px) {
+    .container {
+      display: flex;
+      width: 100%;
+      justify-content: space-between;
+      margin-top: 20px;
+    }
+
+    .containerProductOut {
+      width: 46%;
+    }
+
+    .containerProduct {
+      display: flex;
+      margin: 30px 0;
+      align-items: start;
+      justify-content: space-between;
+      max-width: 90%;
+    }
+
+    .containerProduct img {
+      transition: all 0.3s cubic-bezier(0.77,0.2,0.05,1.0);
+    }
+
+    .containerProduct img:hover {
+      scale: 0.95;
+    }
+
+
+    .descriptionsProducts {
+      min-width: 200px;
+    }
+
+
+    .categoria {
+      display: flex;
+      padding-bottom: 15px;
+    }
+
+
+    .categoria p {
+      font-weight: normal;
+      text-transform: capitalize;
+    }
+
+    .categoria p:nth-child(1) {
+      font-weight: 500;
+    }
+
+    .price p{
+      padding-bottom: 15px;
+      font-weight: bold;
+    }
+
+    .taglie p{
+      font-weight: normal;
+    }
+
+    .quantita p {
+      font-weight: 500;
+    }
+
+    .containerBottom {
+      padding: 30px;
+      background-color: var(--light);
+      padding-bottom: 20px;
+      width: 40%;
+      border-radius: 15px;
+      height: auto;
+      display: flex;
+      flex-direction: column;
+    }
+
+    .shipping {
+      display: flex;
+      justify-content: space-between;
+      margin-bottom: 8px;
+    }
+
+    .shipping p {
+      font-weight: normal;
+    }
+
+    .totalPrice {
+      display: flex;
+      justify-content: space-between;
+    }
+
+    .totalPrice p {
+      font-size: 24px;
+      font-weight: 500;
+    }
+
+    .buttonCart {
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      padding: 5px 15px;
+      background-color: var(--dark);
+      color: var(--light);
+      margin-top: 18px;
+      border-radius: 6px;
+      transition: all 0.3s cubic-bezier(0.77,0.2,0.05,1.0);
+      box-shadow: 0px 0px 16px 0px rgba(13, 13, 13, 0.4);
+    }
+
+    .buttonCart:hover {
+      scale: 0.97;
+    }
+
+
+    .buttons button:nth-child(1){
+      transform: rotate(45deg);
+    }
+
+    .eliminate {
+      color: var(--dark);
+      border-radius: 10px;
+      padding: 0 10px;
+      transition: all 0.3s cubic-bezier(0.77,0.2,0.05,1.0);
+    }
+
+    .eliminate:hover {
+      color: var(--error);
+    }
+
+    .buttons button:nth-child(1):hover{
+      color: green;
+    }
+
+    .emptyCart p {
+      font-size: 18px;
+      margin-top: 23px;
+      padding-bottom: 23px;
+    }
+  }
