@@ -22,7 +22,7 @@
 .containerRight img {
     object-fit: cover !important;
 }
-
+ 
 .grabbing {
     cursor: grabbing;
     cursor: -moz-grabbing;
