@@ -43,7 +43,7 @@
             grainWidth: 1,
             grainHeight: 1,
             grainChaos: 0.5,
-            grainSpeed: 4
+            grainSpeed: 6
 
         };
 
