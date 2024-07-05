@@ -115,3 +115,46 @@
       margin-bottom: 8px;
    }
 }
+
+
+@media (max-width: 767px) {
+   .container {
+      display: grid;
+      grid-template-columns: repeat(2, 1fr);
+    }
+   
+    .itemContainer {
+       margin: 6%;
+       max-width: 222px;
+    }
+   
+    .containerImg {
+       position: relative;
+       height: 0;
+       padding-bottom: 100%;
+       width: 100%;
+       overflow: hidden;
+     }
+     
+    .listInfo{
+       padding: 20px;
+    }
+   
+   .listInfo li {
+       font-size: 8px;
+   }
+   
+   .listInfo li p{
+       font-size: 11px;
+    }
+   
+    .stato {
+       padding: 3px;
+    }
+   
+    .containerInfo{
+       padding: 3px;
+       margin-bottom: 7px;
+    }
+    
+}

@@ -51,12 +51,41 @@
  margin-left: 4px;
 }
 
-.containerProducts {
-
-}
-
 .containerFooter {
     display: flex;
     justify-content: space-around;
     border: 1px solid var(--dark);
+}
+
+.containerImg{
+    position: relative;
+    height: 370px;
+    width: 320px;
+}
+
+
+@media (max-width: 767px) {
+    .close {
+        font-size: 18px;
+    }
+    
+    .containerList {
+        padding: 13px;
+    }
+    
+    .containerList li {
+        font-size: 12px;
+        margin-top: 3px;
+       }
+    
+    .containerList p {
+     font-size: 13px;
+     margin-left: 2px;
+    }
+
+    .containerImg{
+        position: relative;
+        height: 58vw;
+        width: 52vw;
+    }
 }

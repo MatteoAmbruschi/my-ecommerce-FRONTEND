@@ -56,6 +56,7 @@
     bottom: 0;
     left: 0;
     pointer-events: none;
+    height: 100%;
 }
 
 @media (min-width: 768px) and (max-width: 1280px) {
@@ -72,6 +73,38 @@
     .containerName button {
         height: 80px;
         width: 10%;
+    }
+
+    .containerName img {
+        height: auto;
+        width: 40px;
+    }
+    
+    .errors {
+        margin-top: 18px;
+    }
+}
+
+@media (max-width: 767px) {
+    .containerName{
+        margin-top: 50px;
+        padding: 20px;
+        flex-direction: column;
+        align-items: start;
+    }
+    .containerName section { 
+        margin: 15px 0 15px 0;
+        width: 100%;
+    }
+
+    .containerName section input{
+        font-size: 18px;
+        padding: 2px;
+    }
+    
+    .containerName button {
+        height: 80px;
+        width: 100%;
     }
 
     .containerName img {

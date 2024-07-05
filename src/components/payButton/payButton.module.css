@@ -12,3 +12,10 @@
 .styleButton:hover{
     scale: 0.97;
 }
+
+@media (max-width: 767px) {
+    .styleButton {
+        height: 100px;
+    }
+    
+}

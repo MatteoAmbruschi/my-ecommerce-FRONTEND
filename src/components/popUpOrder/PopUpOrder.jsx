@@ -12,11 +12,11 @@ export default function PopUpOrder ({ ship, setPopUp, idClicked }) {
         <p className={styles.close} onClick={() => setPopUp(false)}>CLOSE</p>
             {selected.map((item) => (
                 <ul key={item.id} className={styles.itemContainer}>
-                <div style={{ position: 'relative', height: '370px', width: '320px' }}>
+                <div className={styles.containerImg}>
                     <Image src={`/uploads/${item.image_urls[0]}`} fill style={{objectFit: 'cover'}} alt={`Image of ${item.categoria}`}></Image>
                 </div>
                 <div className={styles.containerList}>
-                    <div className={styles.containerProducts}>
+                    <div>
                         <li>{item.categoria}: <p>{item.nome}</p></li>
                         <li>Description: <p>{item.descrizione}</p></li>
                         <li>Material: <p>{item.materiali}</p></li>

@@ -69,3 +69,36 @@
         margin-left: 4px;
     }
 }
+
+@media (max-width: 767px) {
+    .containerTop {
+        margin-top: 13px;
+        flex-direction: column;
+        justify-content: start;
+    }
+    
+    .containerTop p {
+        font-size: 14px;
+        margin-top: 8px;
+        text-align: left;
+    }
+    
+    .containerButtons {
+        display: flex !important;
+        flex-direction: column !important;
+        gap: 0px !important;
+    }
+    .button{
+        border-radius: 13px;
+        height: 230px;
+        margin-top: 30px;
+        
+        font-size: 34px;
+        padding: 40px;
+        white-space: nowrap
+    }
+    
+    .button img {
+        margin-left: 3px;
+    }
+}
