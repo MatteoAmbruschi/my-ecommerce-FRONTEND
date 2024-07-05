@@ -9,3 +9,14 @@
 .container h1 {
     line-height: 200px;
 }
+
+@media (min-width: 768px) and (max-width: 1280px) {
+    .container h1 {
+        line-height: 100px;
+    }
+}
+@media (max-width: 767px) {
+    .container h1 {
+        line-height: 14vw;
+    }
+}

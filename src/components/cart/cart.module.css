@@ -258,6 +258,8 @@
 
 .containerProduct img {
   margin-right: 20px;
+  width: 115px;
+  height: auto;
 }
 
 .descriptionsProducts {
@@ -291,5 +293,89 @@
 .eliminate {
   padding: 0 8px;
 }
+
+}
+
+
+@media (max-width: 767px) {
+  .cartContainer{
+    top: 70px;
+    padding: 4px 8px;
+    max-width: 92%;
+  }
+
+  .expanded {
+    padding: 0 18px;
+  }
+
+  .containerLogging {
+    margin-top: 0px;
+    padding-bottom: 18px;
+  }
+
+  .linkSign{
+    margin-top: 5px;
+    margin-top: 18px;
+  }
+
+  .writeLogged {
+    font-size: 16px !important;
+    margin-top: 16px;
+  }
+
+  .buttonClose{
+    padding: 6px;
+    border-radius: 6px;
+  }
+
+
+  .emptyCart p {
+    font-size: 14px;
+    margin-top: 18px;
+    padding-bottom: 18px;
+  }
+
+  .containerProduct {
+    margin: 26px 0;
+  }
+
+  .containerProduct img {
+    margin-right: 14px;
+    width: 23vw;
+    max-width: 105px;
+    height: auto;
+  }
+
+  .descriptionsProducts {
+    min-width: 52%;
+  }
+
+  .categoria {
+    padding-bottom: 11px;
+  }
+
+  .price p{
+    padding-bottom: 11px;
+  }
+
+  .containerBottom {
+    padding-top: 11px;
+    padding-bottom: 16px;
+  }
+
+  .shipping {
+    margin-bottom: 5px;
+  }
+
+  .buttonCart { 
+    padding: 4px 13px;
+    margin-top: 16px;
+    border-radius: 5px;
+  }
+
+
+  .eliminate {
+    padding: 0 6px;
+  }
 
 }

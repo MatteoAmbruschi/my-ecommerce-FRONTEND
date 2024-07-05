@@ -115,3 +115,29 @@
             font-size: 16px;
         }
 }
+
+@media (max-width: 767px) {
+    .wrap {
+        grid-template-columns: repeat(1, 1fr);
+        gap: 55px;
+    }
+    
+    .containerImg{
+        height: 400px;
+    }
+    
+    .container:hover >  .containerImg{
+        border-radius: 40px;
+    }
+    
+    
+    .containerText {
+        height: 400px;
+    }
+    
+    
+    .button {
+        padding: 13px 9%;
+        font-size: 14px;
+    }
+}

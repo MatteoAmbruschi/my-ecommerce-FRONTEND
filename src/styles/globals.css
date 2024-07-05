@@ -115,9 +115,6 @@ h2 {
     
     h1 {
         font-size: 19vw;
-        letter-spacing: 0.01px;
-        font-weight: 500;
-        color: var(--dark);
         line-height: 17vw;
         padding: 7vw 0;
     }
@@ -136,10 +133,40 @@ h2 {
 
     h2 {
         font-size: 4.6vw;
-        letter-spacing: 0.01px;
-        font-weight: 500;
-        color: var(--dark);
         line-height: 4.6vw;
         padding: 2vw 0;
     }
   }
+
+
+@media (max-width: 767px) {
+  
+    p {
+        font-size: 14px;
+    }
+    
+    h1 {
+        font-size: 19vw;
+        line-height: 17vw;
+        padding: 7vw 0;
+    }
+    
+    h1 img{
+        width: auto;
+        height: 3vw;
+        margin: 0 -3px;
+    }
+    h2 img {
+        width: auto;
+        height: 2vw;
+        margin: 0 0px;
+    }
+
+
+    h2 {
+        font-size: 5vw;
+        line-height: 5vw;
+        padding: 2vw 0;
+    }
+    
+}
