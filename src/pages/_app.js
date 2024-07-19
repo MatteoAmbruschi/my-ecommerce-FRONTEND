@@ -5,6 +5,7 @@ import Footer from "@/components/footer/Footer";
 import { useState, useEffect } from "react";
 import Cart from "@/components/cart/Cart";
 import { fixTimeoutTransition } from "@/components/fixTimeoutTransition/fixTimeoutTransition";
+import { GoogleAnalytics } from '@next/third-parties/google'
 
 export default function App({ Component, pageProps, router }) {
   const [charge, setCharge] = useState(0);
@@ -30,6 +31,8 @@ export default function App({ Component, pageProps, router }) {
         />
       </AnimatePresence>
       <Footer />
+
+      <GoogleAnalytics gaId="G-5FSHPDDV7Y" />
     </main>
   );
 }
