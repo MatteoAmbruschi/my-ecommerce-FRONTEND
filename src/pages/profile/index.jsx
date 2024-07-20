@@ -61,7 +61,7 @@ export default function Profile({ charge, setCharge}) {
       {!user ? (
         <div className={styles.error}>
           <Title>
-            <h1>{error ? <div style={{fontSize: 120, paddingTop: '10%', display: 'inline-block'}}>{error}</div> : 'Hi, ....'}
+            <h1>{error ? <div className={styles.errorWrite}>{error}</div> : 'Hi, ....'}
               <Image src='/asterisco-black2.png' width={50} height={50} alt='asterisco usato come logo' />
             </h1>
           </Title>
